@@ -28,4 +28,17 @@ class Funcion extends Model
     {
         return $this->belongsTo(Sala::class);
     }
+
+    public function agregarFuncion($fecha, $hora_inicio, $precio_entrada, $peliculaId, $salaId)
+    {
+        $funcion = Funcion::create([
+            'fecha' => $fecha,
+            'hora_inicio' => $hora_inicio,
+            'precio_entrada' => $precio_entrada,
+            'pelicula_id' => $peliculaId,
+            'sala_id' => $salaId
+        ]);
+
+        return $funcion;
+    }
 }

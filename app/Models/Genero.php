@@ -20,4 +20,10 @@ class Genero extends Model
     {
         return $this->hasMany(Pelicula::class);
     }
+
+    public function agregarGenero($nombre)
+    {
+        $genero = Genero::create(['nombre' => $nombre]);
+        return $genero;
+    }
 }

@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use App\Models\Funcion;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
 
 
 class Entrada extends Model
@@ -25,6 +26,11 @@ class Entrada extends Model
     public function funcion()
     {
         return $this->belongsTo(Funcion::class);
+    }
+
+    public function agregarEntrada($cantidad_entradas_compradas, $precio_unitario, $precio_total, $puntos_obtenidos, $hora_compra, $funcionId, $userId)
+    {
+        //TERMINAR
     }
 
 }

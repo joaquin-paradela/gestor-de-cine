@@ -6,6 +6,7 @@ body{
     background-image: url("../Imagenes/Lizard.jpg") ;
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
 
 /*Modificaciones Carousel*/
@@ -65,7 +66,7 @@ img.card-img-top{
 }
 
 #cartelera{
-    margin-top: 0.7rem;
+    margin-top: 2rem;
 }
 
 
@@ -141,3 +142,76 @@ li.nav-item{
 }
 
 /*Fin modificaciones footer*/
+
+/* Inicio Pagina Ayuda */
+#filaAyuda{
+    background-image: url("../Imagenes/Deep\ Space.jpg");
+}
+#filaAyuda h2{
+    color: whitesmoke;
+    font-size: 4rem;
+    padding-left: 1.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.7rem; 
+}
+
+#accordionAyuda .accordion-item{
+    font-size: 2rem;
+    background-image: url("../Imagenes/Royal.jpg");
+    color: whitesmoke;
+}
+
+#accordionAyuda .accordion-button{
+    font-size: 2rem;
+    
+}
+
+#container-Manual-Usuario{
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+    padding-top: 2rem;
+    padding-bottom: 4rem;   
+}
+
+.container#container-Manual-Usuario h3{
+   font-size: 2rem;
+    margin-bottom: 2rem;
+   color: white;
+}
+
+.container#container-Manual-Usuario h3:hover{
+    text-decoration: underline;
+ }
+
+ .container#container-Manual-Usuario img{
+    transition: 0.1s ease-in all;
+ }
+
+ .container#container-Manual-Usuario img:hover{
+   /* width: 10.4rem;*/
+    rotate: -8deg;
+ }
+
+#Manual-Usuario{
+    width: 150px;
+}
+
+/* Fin Pagina Ayuda */
+
+/* Pagina Promociones */
+#FilaPromociones{
+    background-image: url("../Imagenes/Deep\ Space.jpg");
+    color: whitesmoke;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#FilaPromociones h2{
+    font-size: 3rem;
+}
+
+.Separador{
+    height: 50px;
+    opacity: 2%;
+}
+/* Fin pagina promociones */
