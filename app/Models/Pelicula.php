@@ -17,8 +17,9 @@ class Pelicula extends Model
 
     protected $table = 'peliculas';
     protected $primaryKey = 'id';
+    public $timestamps = false;
     
-    protected $fillable = ['titulo','duracion'];
+    protected $fillable = ['titulo','duracion', 'imagen'];
 
     public function genero()
     {
@@ -32,17 +33,22 @@ class Pelicula extends Model
 
     public function actoresPrincipales()
     {
-        return $this->belongsToMany(ActorPrincipal::class, 'actuaciones');
+        return $this->belongsToMany(ActorPrincipal::class, 'actuaciones', 'pelicula_id', 'principales_id');
     }
 
     //funcionalidades
-    public function agregarPelicula($titulo, $duracion, $generoId, $actoresPrincipales)
+    public static function agregarPelicula($titulo, $duracion, $generoId, $actoresPrincipales, $imagen)
     {
         $pelicula = Pelicula::create([
             'titulo' => $titulo,
             'duracion' => $duracion,
             'genero_id' => $generoId,
         ]);
+
+        // Procesar y guardar la imagen
+        $rutaImagen = $pelicula->guardarImagen($imagen);
+        $pelicula->imagen = $rutaImagen;
+        $pelicula->save();
 
         /* actoresPrincipales() es un método definido en el modelo Pelicula que representa
          la relación de muchos a muchos con la tabla actores_principales a través de la
@@ -57,6 +63,19 @@ class Pelicula extends Model
         return $pelicula;
     }
 
+    public function guardarImagen($imagen)
+    {
+        $ruta = public_path('Imagenes/');
+
+        // Generar un nombre único para la imagen
+        $nombreImagen = uniqid('imagen_') . '.' . $imagen->getClientOriginalExtension();
+
+        // Mover la imagen al directorio de destino
+        $imagen->move($ruta, $nombreImagen);
+
+        return $ruta . $nombreImagen;
+    }
+
     /*
      Asume que $datos es un array que contiene los nuevos valores para los atributos de la película.
       El método update actualiza directamente los atributos de la película en la base de datos.
@@ -66,7 +85,7 @@ class Pelicula extends Model
         $this->update($datos);
     }
 
-    public static function mostrarPeliculas()
+    public static function getPeliculas()
     {
         $peliculas = Pelicula::all();
         return $peliculas;

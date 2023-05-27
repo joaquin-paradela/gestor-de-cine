@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('genero_id');
             $table->string('titulo')->nullable(false);
             $table->time('duracion');
+            $table->string('imagen')->nullable(false);
             $table->softDeletes();
 
             $table->foreign('genero_id')->references('id')->on('generos');

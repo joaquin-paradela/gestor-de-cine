@@ -23,7 +23,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/promociones') }}">Promociones</a>
                 </li>
+                <li class="nav-item">
+                    @auth 
+                        @if(auth()->user()->rol_id == 2)
+                            <a class="nav-link" href="{{ url('/admin') }}">Admin</a>
+                        @endif
+                    @endauth
+                </li>
             </ul>
+
 
             <div >
                 @if (Route::has('login'))

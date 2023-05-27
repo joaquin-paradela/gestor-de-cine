@@ -215,3 +215,8 @@ li.nav-item{
     opacity: 2%;
 }
 /* Fin pagina promociones */
+
+.btn-custom {
+    background-color: #002633; /* Cambia este valor al azul oscuro que desees */
+    color: #fff; /* Cambia este valor al color de texto deseado */
+}
