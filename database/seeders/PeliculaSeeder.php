@@ -16,7 +16,7 @@ class PeliculaSeeder extends Seeder
     public function run(): void
     {
       $imagen = public_path('Imagenes/Rapido.png');
-        $genero = Genero::firstOrCreate(['nombre' => 'Acción']);
+      $genero = Genero::firstOrCreate(['nombre' => 'Acción']);
 
       $pelicula =  Pelicula::create([
                     'titulo' => 'Rapidos y furiosos',

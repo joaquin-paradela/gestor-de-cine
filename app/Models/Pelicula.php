@@ -58,7 +58,13 @@ class Pelicula extends Model
           crea las relaciones entre la película y los actores principales en la tabla de enlace actuaciones,
            lo que permite asociar a los actores principales con la película recién creada.
         */
-        $pelicula->actoresPrincipales()->attach($actoresPrincipales);
+        
+        foreach ($actoresPrincipalesNombres as $nombre) {
+            $actorPrincipal = ActorPrincipal::firstOrCreate(['nombre_actor' => $nombre]);
+
+            $pelicula->actoresPrincipales()->attach($actorPrincipal->id);
+        }
+       
 
         return $pelicula;
     }
