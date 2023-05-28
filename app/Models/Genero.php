@@ -18,9 +18,18 @@ class Genero extends Model
     
     protected $fillable = ['nombre'];
 
+    //relaciones entre entidades
     public function peliculas()
     {
         return $this->hasMany(Pelicula::class);
+    }
+
+    //funcionalidades
+
+    public static function getGeneros()
+    {
+         $generos = Genero::all();
+         return $generos;
     }
 
     public function agregarGenero($nombre)
@@ -28,4 +37,6 @@ class Genero extends Model
         $genero = Genero::create(['nombre' => $nombre]);
         return $genero;
     }
+
+   
 }

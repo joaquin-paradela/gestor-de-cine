@@ -220,3 +220,45 @@ li.nav-item{
     background-color: #002633; /* Cambia este valor al azul oscuro que desees */
     color: #fff; /* Cambia este valor al color de texto deseado */
 }
+
+/* Estilos para el botón del menú desplegable */
+.navbar-nav .dropdown-toggle {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  /* Estilos para el menú desplegable */
+  .dropdown-menu {
+    background-color: #343a40;
+    border: none;
+  }
+  
+  /* Estilos para los ítems del menú desplegable */
+  .dropdown-item {
+    color: #fff;
+    font-weight: normal;
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    background-color: #212529;
+    color: #fff;
+  }
+  
+  /* Estilos para el botón de alternancia del menú desplegable 
+  .navbar-toggler-icon {
+    background-image: url('ruta-de-la-imagen-del-icono.png');
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  */
+  
+  /* Estilos para el ícono del menú desplegable cuando está desplegado */
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    transform: rotate(180deg);
+  }

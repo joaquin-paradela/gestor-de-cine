@@ -6,6 +6,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav nav-underline mx-auto">
+               <li class="nav-item">
+                    <a class="nav-link" href="#">Salas</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link " aria-current="page" href="{{ url('/bienvenida') }}">Cartelera</a>
                 </li>
@@ -14,7 +17,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/bienvenida') }}"><img id="logo-principal"
-                            src="Imagenes/ICONOS/Logo cine png.png" alt="Logo"></a>
+                    src="{{ asset('Imagenes/ICONOS/Logo cine png.png') }}" alt="Logo"></a>
                 </li>
 
                 <li class="nav-item">

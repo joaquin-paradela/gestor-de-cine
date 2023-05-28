@@ -14,7 +14,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     </head>
     <body>
-        <!-- Menú de navegación -->
+        <!-- Menú de navegación --> 
         <header>
             <div>
                 @include('layouts.menunavigation')
@@ -25,7 +25,7 @@
         <!-- Contenido de la página -->
         <div class="container">
             <h1>Bienvenido, administrador</h1>
-            <!-- Agrega aquí el contenido específico para la vista de administrador -->
+            
              <div class="options">
                 <a href="{{route('admin.peliculas.index')}}" class="btn btn-custom">Peliculas</a>
                 <!-- Agrega más opciones según tus necesidades -->

@@ -15,13 +15,13 @@ class PeliculaSeeder extends Seeder
      */
     public function run(): void
     {
-      $imagen = public_path('Imagenes/Rapido.png');
+      $imagenPath = 'Imagenes/Rapido.png';
       $genero = Genero::firstOrCreate(['nombre' => 'Acción']);
 
       $pelicula =  Pelicula::create([
                     'titulo' => 'Rapidos y furiosos',
                     'duracion' => '60:00:00',
-                    'imagen' => $imagen,
+                    'imagen' => asset($imagenPath),
                     'genero_id' => $genero->id
                 ]);
 

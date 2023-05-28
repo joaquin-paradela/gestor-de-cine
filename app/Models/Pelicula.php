@@ -19,8 +19,9 @@ class Pelicula extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     
-    protected $fillable = ['titulo','duracion', 'imagen'];
+    protected $fillable = ['titulo','duracion', 'imagen', 'genero_id'];
 
+    //RELACIONES CON LOS DEMAS MODELOS/ENTIDADES
     public function genero()
     {
         return $this->belongsTo(Genero::class);
@@ -37,39 +38,58 @@ class Pelicula extends Model
     }
 
     //funcionalidades
+    
+    public static function getPeliculas()
+    {
+        $peliculas = Pelicula::all();
+        return $peliculas;
+    }
+
     public static function agregarPelicula($titulo, $duracion, $generoId, $actoresPrincipales, $imagen)
     {
-        $pelicula = Pelicula::create([
-            'titulo' => $titulo,
-            'duracion' => $duracion,
-            'genero_id' => $generoId,
-        ]);
+     
+        $pelicula = new Pelicula();
+        $pelicula->titulo = $titulo;
+        $pelicula->duracion = $duracion;
+        $pelicula->genero_id = $generoId;
 
         // Procesar y guardar la imagen
         $rutaImagen = $pelicula->guardarImagen($imagen);
-        $pelicula->imagen = $rutaImagen;
+        $nombreImagen = basename($rutaImagen); // Obtener solo el nombre del archivo
+        $pelicula->imagen = $nombreImagen;
         $pelicula->save();
 
         /* actoresPrincipales() es un método definido en el modelo Pelicula que representa
          la relación de muchos a muchos con la tabla actores_principales a través de la
           tabla de enlace actuaciones.
+    
+            explode(',', $actoresPrincipales): Divide la cadena $actoresPrincipales 
+            en un array utilizando la coma (,) como delimitador. Esto significa que si $actoresPrincipales 
+            es una cadena como "Actor1, Actor2, Actor3", se convertirá en un array que contiene los elementos 
+            "Actor1", "Actor2" y "Actor3".
 
-          $pelicula->actoresPrincipales()->attach($actoresPrincipales) 
-          crea las relaciones entre la película y los actores principales en la tabla de enlace actuaciones,
-           lo que permite asociar a los actores principales con la película recién creada.
+           array_map('trim', $array): Aplica la función trim() a cada elemento del array. La función trim() 
+           elimina los espacios en blanco al principio y al final de una cadena. En este caso, 
+           array_map('trim', $actoresPrincipales) eliminará cualquier espacio en blanco adicional alrededor
+            de cada nombre de actor en el array.
         */
         
-        foreach ($actoresPrincipalesNombres as $nombre) {
-            $actorPrincipal = ActorPrincipal::firstOrCreate(['nombre_actor' => $nombre]);
+          $actoresPrincipales = array_map('trim', explode(',', $actoresPrincipales));
 
-            $pelicula->actoresPrincipales()->attach($actorPrincipal->id);
-        }
-       
+            // Asociar los actores principales a la película en la tabla intermedia "actuaciones"
+            $actoresIds = [];
+            foreach ($actoresPrincipales as $nombre) {
+                $actorPrincipal = ActorPrincipal::firstOrCreate(['nombre_actor' => $nombre]);
+                $actoresIds[] = $actorPrincipal->id;
+            }
+
+            $pelicula->actoresPrincipales()->sync($actoresIds);
+            
 
         return $pelicula;
     }
 
-    public function guardarImagen($imagen)
+    public static function guardarImagen($imagen)
     {
         $ruta = public_path('Imagenes/');
 
@@ -91,10 +111,6 @@ class Pelicula extends Model
         $this->update($datos);
     }
 
-    public static function getPeliculas()
-    {
-        $peliculas = Pelicula::all();
-        return $peliculas;
-    }
+
 
 }

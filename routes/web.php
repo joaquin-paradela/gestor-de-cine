@@ -48,9 +48,19 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', RoleMiddleware::class])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
+    //rutas peliculas
     Route::get('/peliculas/index', [PeliculaController::class, 'index'])->name('admin.peliculas.index');
     Route::get('/admin/peliculas', [PeliculaController::class, 'create'])->name('admin.peliculas.create');
-    Route::post('/peliculas', [PeliculaController::class, 'store'])->name('admin.peliculas.store');
+    Route::post('/admin/peliculas/store', [PeliculaController::class, 'store'])->name('admin.peliculas.store');
+
+    //rutas generos
+    Route::get('/generos/index', [GeneroController::class, 'index'])->name('admin.generos.index');
+
+ 
+    //rutas funciones
+
+
+    //rutas entradas/compras entradas
 });
 
 require __DIR__.'/auth.php';
