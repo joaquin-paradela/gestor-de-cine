@@ -16,7 +16,7 @@ class Entrada extends Model
     protected $table = 'entradas';
     protected $primaryKey = 'id';
 
-    protected $fillable = ['cantidad_entradas_compradas','precio_unitario', 'precio_total', 'puntos_obtenidos', 'hora_compra', 'numero_asiento'];
+    protected $fillable = ['cantidad_entradas_compradas','precio_unitario', 'precio_total', 'puntos_obtenidos', 'hora_compra', 'numero_asiento', 'funcion_id'];
 
     public function usuario()
     {

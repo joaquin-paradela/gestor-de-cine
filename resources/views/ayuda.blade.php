@@ -89,7 +89,7 @@
             <h3>
               Descarga el Manual de Usuario Aquí
             </h3>
-            <a href="#" download="Manual-Usuario"><img src="Imagenes/ICONOS/Icono pdf.png" alt="Icono descarga Manual de usuario" id="Manual-Usuario"></a>
+            <a href="#" download="Manual-Usuario"><img src="{{ asset('Imagenes/ICONOS/Icono pdf.png') }}" alt="Icono descarga Manual de usuario" id="Manual-Usuario" ></a>
           </div>
         </div>
      </div>

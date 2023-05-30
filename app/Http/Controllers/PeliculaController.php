@@ -11,7 +11,7 @@ class PeliculaController extends Controller
 
     public function index()
     {
-        $peliculas = Pelicula::getPeliculas();
+        $peliculas = Pelicula::all();
         return view('admin/peliculas/index', compact('peliculas'));
     }
 

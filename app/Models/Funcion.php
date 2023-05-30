@@ -17,7 +17,7 @@ class Funcion extends Model
     protected $table = 'funciones';
     protected $primaryKey = 'id';
 
-    protected $fillable = ['fecha','hora_inicio', 'precio_entrada'];
+    protected $fillable = ['fecha','hora_inicio', 'precio_entrada', 'sala_id', 'pelicula_id'];
 
     public function entradas()
     {

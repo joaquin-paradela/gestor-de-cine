@@ -38,13 +38,6 @@ class Pelicula extends Model
     }
 
     //funcionalidades
-    
-    public static function getPeliculas()
-    {
-        $peliculas = Pelicula::all();
-        return $peliculas;
-    }
-
     public static function agregarPelicula($titulo, $duracion, $generoId, $actoresPrincipales, $imagen)
     {
      

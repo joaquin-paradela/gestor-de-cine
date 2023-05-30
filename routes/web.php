@@ -33,6 +33,10 @@ Route::get('/promociones', function () {
     return view('promociones');
 });
 
+Route::get('/contacto', function () {
+    return view('contacto');
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
