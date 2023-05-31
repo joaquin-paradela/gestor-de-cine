@@ -12,7 +12,7 @@ class PeliculaController extends Controller
     public function index()
     {
         $peliculas = Pelicula::all();
-        return view('admin/peliculas/index', compact('peliculas'));
+        return view('admin.peliculas.index', compact('peliculas'));
     }
 
     public function show()
@@ -23,7 +23,7 @@ class PeliculaController extends Controller
     public function create()
     {
         $generos = Genero::all();
-        return view('admin.peliculas.create', ['generos' => $generos]);
+        return view('admin.peliculas.create', compact('generos'));
     }
 
     public function store(Request $request)
@@ -32,6 +32,7 @@ class PeliculaController extends Controller
         $datos = $request->validate([
             'titulo' => 'required',
             'duracion' => 'required',
+            'descripcion' => 'required',
             'genero_id' => 'required',
         ]);
 
@@ -47,7 +48,8 @@ class PeliculaController extends Controller
                     $datos['duracion'],
                     $datos['genero_id'],
                     $actoresPrincipales,
-                    $imagen
+                    $imagen,
+                    $datos['descripcion']
                 );
 
         // Redireccionar o realizar alguna acción adicional

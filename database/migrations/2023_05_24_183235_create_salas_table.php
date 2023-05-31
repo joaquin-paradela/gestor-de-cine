@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('salas', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
             $table->enum('tipo_sala', ['2D', '3D'])->default('2D');
             $table->integer('capacidad_asientos')->nullable(false);
         });

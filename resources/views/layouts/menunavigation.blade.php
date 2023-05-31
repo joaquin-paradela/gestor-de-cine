@@ -6,9 +6,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav nav-underline mx-auto">
-               <li class="nav-item">
-                    <a class="nav-link" href="#">Salas</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link " aria-current="page" href="{{ url('/bienvenida') }}">Cartelera</a>
                 </li>

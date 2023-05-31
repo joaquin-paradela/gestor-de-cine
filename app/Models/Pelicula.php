@@ -19,7 +19,7 @@ class Pelicula extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     
-    protected $fillable = ['titulo','duracion', 'imagen', 'genero_id'];
+    protected $fillable = ['titulo','duracion', 'imagen','descripcion', 'genero_id'];
 
     //RELACIONES CON LOS DEMAS MODELOS/ENTIDADES
     public function genero()
@@ -38,13 +38,15 @@ class Pelicula extends Model
     }
 
     //funcionalidades
-    public static function agregarPelicula($titulo, $duracion, $generoId, $actoresPrincipales, $imagen)
+    public static function agregarPelicula($titulo, $duracion, $generoId, $actoresPrincipales, $imagen, $descripcion)
     {
      
         $pelicula = new Pelicula();
         $pelicula->titulo = $titulo;
         $pelicula->duracion = $duracion;
+        $pelicula->descripcion = $descripcion;
         $pelicula->genero_id = $generoId;
+        
 
         // Procesar y guardar la imagen
         $rutaImagen = $pelicula->guardarImagen($imagen);

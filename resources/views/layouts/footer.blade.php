@@ -24,19 +24,19 @@
             <div class="col-lg-4">
              <ul id="listafooter">
               <li>
-                <a  href="#">Cartelera</a>
+                <a  href="{{ url('/bienvenida') }}">Cartelera</a>
               </li>
               <li>
-                <a  href="#">Contacto</a>
+                <a  href="{{ url('/contacto') }}">Contacto</a>
               </li>
               <li>
-                <a href="#">Home</a>
+                <a href="{{ url('/bienvenida') }}">Home</a>
               </li>
               <li>
-                <a href="#">Ayuda</a>
+                <a href="{{ url('/ayuda') }}">Ayuda</a>
               </li>
               <li>
-                <a href="#">Promociones</a>
+                <a href="{{ url('/promociones') }}">Promociones</a>
               </li>
             </ul>
             </div>

@@ -4,6 +4,7 @@ use App\Http\Middleware\RoleMiddleware;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PeliculaController;
+use App\Http\Controllers\FuncionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,6 +63,8 @@ Route::middleware(['auth', RoleMiddleware::class])->group(function () {
 
  
     //rutas funciones
+    Route::get('/admin/funciones', [FuncionController::class, 'create'])->name('admin.funciones.create');
+    Route::post('/admin/funciones/store', [FuncionController::class, 'store'])->name('admin.funciones.store');
 
 
     //rutas entradas/compras entradas

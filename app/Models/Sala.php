@@ -13,6 +13,7 @@ class Sala extends Model
 
     protected $table = 'salas';
     protected $primaryKey = 'id';
+    public $timestamps = false;
 
     protected $fillable = ['tipo_sala', 'capacidad_asientos'];
 
@@ -21,10 +22,13 @@ class Sala extends Model
         return $this->hasMany(Funcion::class);
     }
 
-    public function getSalas()
+    public function agregarSala($tipoSala, $capacidadAsientos)
     {
-        $salas = Sala::all();
-        return $salas;
+        $sala = new Sala();
+        $sala->tipo_sala = $tipoSala;
+        $sala->capacidad_asientos = $capacidadAsientos;
+
+        return $sala;
     }
 
 }

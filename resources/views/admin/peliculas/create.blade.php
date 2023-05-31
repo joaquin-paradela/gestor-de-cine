@@ -55,6 +55,10 @@
                         @endforeach
                     </select>
                     </div>
+                    <div class="mb-3">
+                        <label for="descripcion" class="form-label">Descripcion</label>
+                        <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+                    </div>
 
                     <button type="submit" class="btn btn-primary">Agregar</button>
                 </form>
