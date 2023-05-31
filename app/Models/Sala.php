@@ -15,16 +15,17 @@ class Sala extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
 
-    protected $fillable = ['tipo_sala', 'capacidad_asientos'];
+    protected $fillable = ['nombre','tipo_sala', 'capacidad_asientos'];
 
     public function funciones()
     {
         return $this->hasMany(Funcion::class);
     }
 
-    public function agregarSala($tipoSala, $capacidadAsientos)
+    public function agregarSala($nombre, $tipoSala, $capacidadAsientos)
     {
         $sala = new Sala();
+        $sala->nombre = $nombre;
         $sala->tipo_sala = $tipoSala;
         $sala->capacidad_asientos = $capacidadAsientos;
 
