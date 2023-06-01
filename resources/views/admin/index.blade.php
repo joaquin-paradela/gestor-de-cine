@@ -30,6 +30,10 @@
                 <a href="{{route('admin.peliculas.index')}}" class="btn btn-custom">Peliculas</a>
                 <!-- Agrega más opciones según tus necesidades -->
                 </div>
+                <div class="options">
+                <a href="{{route('admin.funciones.index')}}" class="btn btn-custom">Funciones</a>
+                <!-- Agrega más opciones según tus necesidades -->
+                </div>
         </div>
         <!-- Fin contenido de la página -->
 

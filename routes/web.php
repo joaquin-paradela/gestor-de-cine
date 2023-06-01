@@ -64,6 +64,7 @@ Route::middleware(['auth', RoleMiddleware::class])->group(function () {
  
     //rutas funciones
     Route::get('/admin/funciones', [FuncionController::class, 'create'])->name('admin.funciones.create');
+    Route::get('/admin/funciones/index', [FuncionController::class, 'index'])->name('admin.funciones.index');
     Route::post('/admin/funciones/store', [FuncionController::class, 'store'])->name('admin.funciones.store');
 
 

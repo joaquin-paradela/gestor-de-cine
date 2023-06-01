@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Entrada;
 use App\Models\Sala;
+use App\Models\Pelicula;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -16,6 +17,7 @@ class Funcion extends Model
 
     protected $table = 'funciones';
     protected $primaryKey = 'id';
+    public $timestamps = false;
 
     protected $fillable = ['fecha','hora_inicio', 'precio_entrada', 'sala_id', 'pelicula_id'];
 
@@ -28,16 +30,20 @@ class Funcion extends Model
     {
         return $this->belongsTo(Sala::class);
     }
-
-    public function agregarFuncion($fecha, $hora_inicio, $precio_entrada, $peliculaId, $salaId)
+    public function pelicula()
     {
-        $funcion = Funcion::create([
-            'fecha' => $fecha,
-            'hora_inicio' => $hora_inicio,
-            'precio_entrada' => $precio_entrada,
-            'pelicula_id' => $peliculaId,
-            'sala_id' => $salaId
-        ]);
+        return $this->belongsTo(Pelicula::class);
+    }
+
+    public static function agregarFuncion($fecha, $hora_inicio, $precio_entrada, $peliculaId, $salaId)
+    {
+        $funcion = new Funcion();
+        $funcion->fecha = $fecha;
+        $funcion->hora_inicio = $hora_inicio;
+        $funcion->precio_entrada = $precio_entrada;
+        $funcion->pelicula_id = $peliculaId;
+        $funcion->sala_id = $salaId;
+        $funcion->save();
 
         return $funcion;
     }

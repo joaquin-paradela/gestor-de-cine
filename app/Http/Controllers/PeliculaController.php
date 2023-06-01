@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Genero;
 use App\Models\Pelicula;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PeliculaController extends Controller
 {
@@ -28,31 +29,42 @@ class PeliculaController extends Controller
 
     public function store(Request $request)
     {
-        // Validar y obtener los datos del formulario
-        $datos = $request->validate([
-            'titulo' => 'required',
-            'duracion' => 'required',
-            'descripcion' => 'required',
-            'genero_id' => 'required',
-        ]);
+        try {
+            
+            // Validar y obtener los datos del formulario
+            $datos = $request->validate([
+                'titulo' => 'required',
+                'duracion' => 'required',
+                'descripcion' => 'required',
+                'genero_id' => 'required',
+            ]);
 
-        // Obtener los actores principales seleccionados
-        $actoresPrincipales = $request->input('actores_principales');
+            // Obtener los actores principales seleccionados
+            $actoresPrincipales = $request->input('actores_principales');
 
-        // Obtener la imagen del formulario
-        $imagen = $request->file('imagen');
+            // Obtener la imagen del formulario
+            $imagen = $request->file('imagen');
 
-        // Llamar a la función agregarPelicula() del modelo Pelicula
-        $pelicula = Pelicula::agregarPelicula(
-                    $datos['titulo'],
-                    $datos['duracion'],
-                    $datos['genero_id'],
-                    $actoresPrincipales,
-                    $imagen,
-                    $datos['descripcion']
-                );
+            // Llamar a la función agregarPelicula() del modelo Pelicula
+            $pelicula = Pelicula::agregarPelicula(
+                        $datos['titulo'],
+                        $datos['duracion'],
+                        $datos['genero_id'],
+                        $actoresPrincipales,
+                        $imagen,
+                        $datos['descripcion']
+                    );
 
-        // Redireccionar o realizar alguna acción adicional
+            // Agregar mensaje flash de éxito
+            Session::flash('success', 'Se creó la película exitosamente');
+            // Redireccionar a la vista admin.peliculas.index
+            return redirect()->route('admin.peliculas.index');
+        }catch (\Exception $e) {
+            // Manejo de errores
+            Session::flash('error', 'Error al crear la película: ' . $e->getMessage());
+            // Redireccionar a una vista de error o a la página anterior
+            return redirect()->back();
+        }
     }
 
     public function edit($id)

@@ -16,13 +16,23 @@
             @include('layouts.menunavigation')
         </div>     
     </header>
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
     <!-- Fin menú navegación -->
     <!-- Contenido de la página -->
     <div class="container">
         <h1>Crear Función</h1>
 
         <!-- Formulario para crear una función -->
-        <form action="{{ route('admin.funciones.store') }}" method="POST">
+        <form action="{{ route('admin.funciones.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <!-- Fecha -->
