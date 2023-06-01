@@ -22,45 +22,63 @@
     </header>
     <!-- Fin menú navegación -->
 
-    <!-- Contenido de la página -->
+       <!-- Contenido de la página -->
     <div class="container">
         <h1>Boletería</h1>
 
-        <!-- Selección de día -->
-        <div class="form-group">
-            <label for="day">Día:</label>
-            <select class="form-control" id="day" name="day">
-                <option value="">Selecciona un día</option>
-                <option value="lunes">Lunes</option>
-                <option value="martes">Martes</option>
-                <option value="miercoles">Miércoles</option>
-                <option value="jueves">Jueves</option>
-                <option value="viernes">Viernes</option>
-                <option value="sabado">Sábado</option>
-                <option value="domingo">Domingo</option>
-            </select>
-        </div>
+        <h2>{{ $pelicula->titulo }}</h2>
 
-        <!-- Horarios -->
+        <form action="{{ route('compra') }}" method="POST">
+            @csrf
+
+            <!-- Selección de día -->
+            <div class="form-group">
+                <label for="day">Día:</label>
+                <select class="form-control" id="fecha" name="fecha">
+                    <option value="">Selecciona una fecha</option>
+                    @foreach ($funciones->unique('fecha') as $funcion)
+                    <option value="{{ $funcion->fecha }}">{{ $funcion->fecha }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+         <!-- Horarios y Salas -->
         <div class="form-group">
             <label for="schedule">Seleccione Función:</label>
-            <select class="form-control" id="schedule" name="schedule">
-                <option value="">Selecciona un horario</option>
-                <option value="10:00">10:00 AM</option>
-                <option value="15:00">3:00 PM</option>
-                <option value="20:00">8:00 PM</option>
+            <select class="form-control" id="hora_inicio" name="hora_inicio">
+                <option value="">Selecciona un horario y sala</option>
+                @foreach ($funciones as $funcion)
+                    <option value="{{ $funcion->hora_inicio }}" data-fecha="{{ $funcion->fecha }}" style="display: none;">{{ $funcion->hora_inicio }} - {{ $funcion->sala->nombre }} - {{ $funcion->sala->tipo_sala }}</option>
+                @endforeach
             </select>
         </div>
+        
 
-        <!-- Cantidad de entradas -->
-        <div class="form-group">
-            <label for="quantity">Cantidad de entradas:</label>
-            <input type="number" class="form-control" id="quantity" name="quantity" min="1" value="1">
-        </div>
 
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary">Comprar entradas</button>
-        </div>
+            
+
+            <!-- Cantidad de entradas -->
+            <div class="form-group">
+                <label for="quantity">Cantidad de entradas:</label>
+                <input type="number" class="form-control" id="cantidad_entradas_compradas" name="cantidad_entradas_compradas" min="1" value="1">
+            </div>
+
+            <!-- Capacidad asientos disponibles -->
+            <div class="form-group">
+                <label for="capacidad_asientos">Capacidad de asientos disponibles:</label>
+                <div id="capacidad_asientos">{{ $funcion->sala->capacidad_asientos }}</div>
+            </div>
+
+            <!-- Precio entrada unitaria -->
+            <div class="form-group">
+                <label for="capacidad_asientos">Precio de entrada unitaria:</label>
+                <div id="capacidad_asientos">{{ $funcion->precio_entrada }}</div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Checkout</button>
+            </div>
+        </form>
     </div>
     <!-- Fin contenido de la página -->
 
@@ -69,5 +87,16 @@
     <!-- Fin footer -->
 
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#fecha').change(function() {
+                var selectedFecha = $(this).val();
+                $('#hora_inicio option').hide();
+                $('#hora_inicio option[data-fecha="' + selectedFecha + '"]').show();
+                $('#hora_inicio').val('');
+            });
+        });
+    </script>
 </body>
 </html>

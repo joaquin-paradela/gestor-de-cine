@@ -5,26 +5,16 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\FuncionController;
+use App\Http\Controllers\EntradaController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
+//rutas para clientes logueados y no logueados 
 Route::get('/', function () {
     return view('bienvenida');
 });
 
-Route::get('/bienvenida', function () {
-    return view('bienvenida');
-});
+
+Route::get('/bienvenida', [FuncionController::class, 'carrusel'])->name('carrusel');
 
 Route::get('/ayuda', function () {
     return view('ayuda');
@@ -38,19 +28,21 @@ Route::get('/contacto', function () {
     return view('contacto');
 });
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+//rutas del cliente logueado
 Route::middleware('auth')->group(function () {
+    
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    //rutas entradas/compras entradas
+    Route::get('/boleteria/{peliculaId}', [EntradaController::class, 'boleteria'])->name('boleteria');
+    Route::post('/boleteria/compra', [EntradaController::class, 'store'])->name('compra');
 });
 
-
+    //rutas de administrador
 Route::middleware(['auth', RoleMiddleware::class])->group(function () {
+
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 
     //rutas peliculas
@@ -63,12 +55,10 @@ Route::middleware(['auth', RoleMiddleware::class])->group(function () {
 
  
     //rutas funciones
-    Route::get('/admin/funciones', [FuncionController::class, 'create'])->name('admin.funciones.create');
+    Route::get('/admin/funciones/create', [FuncionController::class, 'create'])->name('admin.funciones.create');
     Route::get('/admin/funciones/index', [FuncionController::class, 'index'])->name('admin.funciones.index');
     Route::post('/admin/funciones/store', [FuncionController::class, 'store'])->name('admin.funciones.store');
-
-
-    //rutas entradas/compras entradas
+    
 });
 
 require __DIR__.'/auth.php';

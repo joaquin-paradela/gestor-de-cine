@@ -28,138 +28,58 @@
         </header>
       <!-- Fin menú navegación -->
 
-      <!-- Carrusel -->
-        <section class="row">
-          <div class="col col-lg-12 ">
-                <div id="carouselExampleAutoplaying" class="carousel" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src="{{ asset('Imagenes/el padrino.jpg') }}" class="d-block w-100" alt="el padrino">
-                      <div class="carousel-caption d-none d-md-block" id="epigrafe">
-                        <h4>El Padrino</h4>
-                        <p>"Una historia de favores que derivan en amistades selladas con la muerte"</p>
-                      </div>
+      <!-- Carrusel dinamico -->
+    <div class="row">
+        <div class="col">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach ($peliculas as $pelicula)
+                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                        <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" class="img-fluid" alt="{{ $pelicula->titulo }}">
+                        <div class="carousel-caption d-none d-md-block" id="epigrafe">
+                            <h4>{{ $pelicula->titulo }}</h4>
+                            <p>"{{ $pelicula->descripcion }}"</p>
+                        </div>
                     </div>
-                    <div class="carousel-item">
-                      <img src="{{ asset('Imagenes/forest gump.jpg') }}" class="d-block w-100" alt="forest gump">
-                      <div class="carousel-caption d-none d-md-block" id="epigrafe">
-                        <h4>Forrest Gump</h4>
-                        <p>"Una inyección de inocencia, solidaridad y optimismo que sirve de vacuna contra la desorientación y el cinismo"</p>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <img src="{{ asset('Imagenes/Scarface.jpg') }}" class="d-block w-100" alt="scarface">
-                      <div class="carousel-caption d-none d-md-block" id="epigrafe">
-                        <h4>Scarface</h4>
-                        <p>"La película más sangrienta sobre gánsteres con un inspirado Al Pacino"</p>
-                      </div>
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    @endforeach
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
-                  </button>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Fin carrusel -->
+
+   
+
+    
+      <!-- Seccion cartelera DINAMICA -->
+      <div class="row text-start" id="filaCartelera">
+        <h2>Cartelera</h2>
+       </div>
+
+    <div class="container text-center">   
+        <section class="row" id="cartelera">
+            @foreach ($peliculas as $pelicula)
+            <div class="col-lg-3 col-md-4 col-sm-10">
+                <div class="card text-bg-dark text-center">
+                    <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" class="card-img-top" alt="{{ $pelicula->titulo }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $pelicula->titulo }}</h5>
+                        <a href="{{ route('boleteria', ['peliculaId' => $pelicula->id]) }}" class="btn btn-primary">Comprar Entrada</a>
+                    </div>
                 </div>
             </div>
+            @endforeach
         </section>
-      <!-- Fin carrusel -->
-
-      
-      
-      <!-- Seccion cartelera -->
-      <div class="row text-start" id="filaCartelera">
-        <h2> Cartelera </h2>
-      </div>
-      
-      <div class="container text-center">   
-        <section class="row" id="cartelera">
-          <div class="col-lg-3 col-md-4 col-sm-10">
-            <div class="card text-bg-dark text-center">
-                <img src="{{ asset('Imagenes/el padrino.jpg') }}" class="card-img-top" alt="el padrino">
-                <div class="card-body">
-                  <h5 class="card-title">El Padrino</h5>
-                  <a href="#" class="btn btn-primary">Comprar Entrada</a>
-                </div>
-              </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-10">
-              <div class="card text-bg-dark text-center">
-                <img src="{{ asset('Imagenes/scarface cartelera.jpg') }}" class="card-img-top" alt="el padrino">
-                <div class="card-body">
-                  <h5 class="card-title">Scarface</h5>
-                  <a href="#" class="btn btn-primary">Comprar Entrada</a>
-                </div>
-              </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-10">
-              <div class="card text-bg-dark text-center">
-                <img src="{{ asset('Imagenes/Forrest gump cartelera.jpg') }}" class="card-img-top" alt="el padrino">
-                <div class="card-body">
-                  <h5 class="card-title">Forrest Gump</h5>
-                  <a href="#" class="btn btn-primary">Comprar Entrada</a>
-                </div>
-              </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-10">
-              <div class="card text-bg-dark text-center">
-                <img src="{{ asset('Imagenes/fight club.jpg') }}" class="card-img-top" alt="fight club">
-                <div class="card-body">
-                  <h5 class="card-title">Fight Club</h5>
-                  <a href="#" class="btn btn-primary">Comprar Entrada</a>
-                </div>
-              </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-10">
-              <div class="card text-bg-dark text-center">
-                <img src="{{ asset('Imagenes/jurasic park.jpg') }}" class="card-img-top" alt="Jurassic Park">
-                <div class="card-body">
-                  <h5 class="card-title">Jurassic Park</h5>
-                  <a href="#" class="btn btn-primary">Comprar Entrada</a>
-                </div>
-              </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-10">
-              <div class="card text-bg-dark text-center">
-                <img src="{{ asset('Imagenes/perfecto asesino.jpg') }}" class="card-img-top" alt="perfecto asesino">
-                <div class="card-body">
-                  <h5 class="card-title">Perfecto Asesino</h5>
-                  <a href="#" class="btn btn-primary">Comprar Entrada</a>
-                </div>
-              </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-10">
-              <div class="card text-bg-dark text-center">
-                <img src="{{ asset('Imagenes/Terminator 2.jpg') }}" class="card-img-top" alt="terminator 2">
-                <div class="card-body">
-                  <h5 class="card-title">Terminator 2</h5>
-                  <a href="#" class="btn btn-primary">Comprar Entrada</a>
-                </div>
-              </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-10">
-              <div class="card text-bg-dark text-center">
-                <img src="{{ asset('Imagenes/Terminator.jpg') }}" class="card-img-top" alt="Terminator">
-                <div class="card-body">
-                  <h5 class="card-title">Terminator</h5>
-                  <a href="#" class="btn btn-primary">Comprar Entrada</a>
-                </div>
-              </div>
-          </div>
-          <div class="col-lg-3 col-md-4 col-sm-10">
-              <div class="card text-bg-dark text-center">
-                <img src="{{ asset('Imagenes/rescatando ryan.jpg') }}" class="card-img-top" alt="rescatando al soldado ryan">
-                <div class="card-body">
-                  <h5 class="card-title">Saving Private Ryan</h5>
-                  <a href="#" class="btn btn-primary">Comprar Entrada</a>
-                </div>
-              </div>
-          </div>
-        </section>
-      </div>
+    </div>
+    <!-- Fin seccion cartelera -->
       <!-- Fin seccion cartelera -->
 
       <!-- inicio Footer -->

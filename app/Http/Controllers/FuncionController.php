@@ -14,10 +14,15 @@ class FuncionController extends Controller
     public function index()
     {
         $funciones = Funcion::all();
+
         return view('admin.funciones.index', compact('funciones'));
     }
+    public function carrusel()
+    {
+        $peliculas = Pelicula::has('funciones')->get()->unique();
 
-
+        return view('bienvenida', compact('peliculas'));
+    }
 
     public function create()
     {
@@ -58,7 +63,7 @@ class FuncionController extends Controller
         }catch (\Exception $e) {
             // Manejo de errores
             Session::flash('error', 'Error al crear la función: ' . $e->getMessage());
-            // Redireccionar a una vista de error o a la página anterior
+            // Redireccionar a una vista de error a la página anterior
             return redirect()->back();
         }
     }
