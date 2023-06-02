@@ -18,15 +18,15 @@ class FuncionController extends Controller
 
         //búsqueda según los criterios (nombre de película, actor principal, tipo de sala)
         $funciones = Funcion::whereHas('pelicula', function ($query) use ($busqueda) {
-                $query->where('titulo', 'LIKE', '%' . $busqueda . '%')
-                        ->orWhereHas('actoresPrincipales', function ($query) use ($busqueda) {
-                            $query->where('nombre_actor', 'LIKE', '%' . $busqueda . '%');
-                        });
-            })
-            ->orWhereHas('sala', function ($query) use ($busqueda) {
-                $query->where('tipo_sala', 'LIKE', '%' . $busqueda . '%');
-            })
-            ->get();
+                                $query->where('titulo', 'LIKE', '%' . $busqueda . '%')
+                                        ->orWhereHas('actoresPrincipales', function ($query) use ($busqueda) {
+                                            $query->where('nombre_actor', 'LIKE', '%' . $busqueda . '%');
+                                        });
+                            })
+                            ->orWhereHas('sala', function ($query) use ($busqueda) {
+                                $query->where('tipo_sala', 'LIKE', '%' . $busqueda . '%');
+                            })
+                            ->get();
 
         // películas filtradas según la búsqueda
         $peliculas = $funciones->map(function ($funcion) {
@@ -62,7 +62,7 @@ class FuncionController extends Controller
         $funcion = Funcion::find($id);
 
         if (!$funcion) {
-            // Si no se encuentra la función, puedes redirigir o mostrar un mensaje de error
+            // Si no se encuentra la función, redirigir o mostrar un mensaje de error
             return redirect()->back()->with('error', 'Función no encontrada');
         }
 

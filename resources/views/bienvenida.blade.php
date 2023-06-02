@@ -41,13 +41,13 @@
 
 
       <!-- Carrusel dinamico -->
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col">
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     @foreach ($peliculas as $pelicula)
                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                        <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" class="img-fluid" alt="{{ $pelicula->titulo }}">
+                        <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" class="img-fluid carousel-image" alt="{{ $pelicula->titulo }}">
                         <div class="carousel-caption d-none d-md-block" id="epigrafe">
                             <h4>{{ $pelicula->titulo }}</h4>
                             <p>"{{ $pelicula->descripcion }}"</p>
@@ -92,7 +92,7 @@
         </section>
     </div>
     <!-- Fin seccion cartelera -->
-      <!-- Fin seccion cartelera -->
+  
 
       <!-- inicio Footer -->
       @include('layouts.footer')

@@ -40,6 +40,12 @@ body{
     padding-left: 1rem;
 } 
 
+.carousel-image {
+        width: 1200px; /* Establece el ancho deseado para las imágenes */
+        height: 800px; /* Ajusta la altura automáticamente */
+        
+    }
+
 /*Fin modificaciones Carousel*/
 
 /*Modificaiones CARTELERA*/

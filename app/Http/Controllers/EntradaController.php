@@ -108,7 +108,6 @@ class EntradaController extends Controller
 
         if (!$entrada) {
             // Manejar la situación si la entrada no existe
-            // Puedes redirigir a una página de error o mostrar un mensaje de error
             return redirect()->route('error')->with('message', 'La entrada no existe.');
         }
 
@@ -122,7 +121,7 @@ class EntradaController extends Controller
         $user = Auth::user(); // Obtener el usuario autenticado
         $puntostotales = $user->puntos_acumulados;
 
-        $entradas = $user->entradas; // Obtener todas las entradas del usuario
+        $entradas = $user->entradas()->orderByDesc('id')->get(); // Obtener todas las entradas del usuario 
 
         return view('historial', ['entradas' => $entradas, 'puntostotales' => $puntostotales]);
     }
