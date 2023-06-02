@@ -27,6 +27,18 @@
           </div>     
         </header>
       <!-- Fin menú navegación -->
+      <!-- Agrega el formulario de búsqueda antes de la sección de la cartelera -->
+        <div class="container">
+            <form action="{{ route('buscar') }}" method="GET" class="row justify-content-center mb-4">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" name="busqueda" class="form-control" placeholder="Buscar por nombre de película, actor principal o tipo de sala">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
 
       <!-- Carrusel dinamico -->
     <div class="row">

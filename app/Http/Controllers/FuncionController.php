@@ -11,6 +11,31 @@ use Illuminate\Support\Facades\Session;
 class FuncionController extends Controller
 {
 
+    public function buscar(Request $request)
+    {
+        
+    $busqueda = $request->input('busqueda');
+
+        //búsqueda según los criterios (nombre de película, actor principal, tipo de sala)
+        $funciones = Funcion::whereHas('pelicula', function ($query) use ($busqueda) {
+                $query->where('titulo', 'LIKE', '%' . $busqueda . '%')
+                        ->orWhereHas('actoresPrincipales', function ($query) use ($busqueda) {
+                            $query->where('nombre_actor', 'LIKE', '%' . $busqueda . '%');
+                        });
+            })
+            ->orWhereHas('sala', function ($query) use ($busqueda) {
+                $query->where('tipo_sala', 'LIKE', '%' . $busqueda . '%');
+            })
+            ->get();
+
+        // películas filtradas según la búsqueda
+        $peliculas = $funciones->map(function ($funcion) {
+                        return $funcion->pelicula;
+                    })->unique();
+
+        // Pasar las películas filtradas a la vista
+        return view('bienvenida', compact('peliculas'));
+    }
     public function index()
     {
         $funciones = Funcion::all();

@@ -25,6 +25,9 @@ Route::get('/contacto', function () {
     return view('contacto');
 });
 
+//Ruta de busqueda para la funcion
+Route::get('/buscar', [FuncionController::class, 'buscar'])->name('buscar');
+
 //rutas del cliente logueado
 Route::middleware('auth')->group(function () {
     
@@ -62,6 +65,7 @@ Route::middleware(['auth', RoleMiddleware::class])->group(function () {
     Route::get('/admin/funciones/index', [FuncionController::class, 'index'])->name('admin.funciones.index');
     Route::post('/admin/funciones/store', [FuncionController::class, 'store'])->name('admin.funciones.store');
 
+    
     // Ruta para mostrar el formulario de edición de una función
     Route::get('/funciones/{funcion}/edit', [FuncionController::class, 'edit'])->name('admin.funciones.edit');
 

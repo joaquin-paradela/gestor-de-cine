@@ -73,7 +73,7 @@
     const precioTotal = parseFloat("{{ $precioTotal }}");
 
     realizarCompraBtn.addEventListener('click', function(event) {
-        event.preventDefault();
+        event.preventDefault(); //detenemos el proceso
 
         const pago = parseFloat(pagoInput.value);
 
@@ -85,7 +85,6 @@
             return;
         }
 
-        console.log('Pago realizado correctamente');
         formularioCompra.submit();
     });
 </script>
