@@ -16,7 +16,7 @@
         
     </head>
 
-    <body>
+    <body style="margin: 0 auto;">
     
       <!-- Menu de navegación -->
         <header>

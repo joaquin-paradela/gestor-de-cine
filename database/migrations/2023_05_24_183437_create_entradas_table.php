@@ -21,7 +21,6 @@ return new class extends Migration
             $table->integer('puntos_obtenidos')->nullable();
             $table->date('fecha_compra')->nullable(false);
             $table->time('hora_compra')->nullable(false);
-            $table->integer('numero_asiento');
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('funcion_id')->references('id')->on('funciones');

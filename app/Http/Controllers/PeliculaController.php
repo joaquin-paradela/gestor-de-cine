@@ -71,8 +71,10 @@ class PeliculaController extends Controller
     {
             // Obtener la película a editar por su ID
             $pelicula = Pelicula::findOrFail($id);
+            $generos = Genero::all();
+            $actoresPrincipales = $pelicula->actoresPrincipales;
 
-            return view('admin.peliculas.edit', compact('pelicula'));
+            return view('admin.peliculas.edit', compact('pelicula', 'generos', 'actoresPrincipales'));
     }
 
     public function update(Request $request, $id)

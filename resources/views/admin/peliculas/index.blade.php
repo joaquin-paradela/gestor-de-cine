@@ -39,29 +39,36 @@
             <a href="{{route('admin.peliculas.create')}}" class="btn btn-primary">Agregar Película</a>
         </div>
         <div class="container text-center"> 
-    <section class="row" id="cartelera">
-        @foreach ($peliculas as $pelicula)
-        <div class="col-lg-3 col-md-4 col-sm-10">
-            <div class="card text-bg-dark text-center">
-                <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" alt="{{ $pelicula->titulo }}" class="card-img-top">
-                    
-                <div class="card-body">
-                    <h3>{{ $pelicula->titulo }}</h3>
-                    <p>Duración: {{ $pelicula->duracion }}</p>
-                    <p>Género: {{ $pelicula->genero->nombre }}</p>
-                    <p>Actores Principales:</p>
-                    <ul>
-                        @foreach ($pelicula->actoresPrincipales as $actor)
-                            <li>{{ $actor->nombre_actor }}</li>
-                        @endforeach
-                    </ul> 
+            <section class="row" id="cartelera">
+                @foreach ($peliculas as $pelicula)
+                <div class="col-lg-3 col-md-4 col-sm-10">
+                    <div class="card text-bg-dark text-center">
+                        <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" alt="{{ $pelicula->titulo }}" class="card-img-top">
+                            
+                        <div class="card-body">
+                            <h3>{{ $pelicula->titulo }}</h3>
+                            <p>Duración: {{ $pelicula->duracion }}</p>
+                            <p>Género: {{ $pelicula->genero->nombre }}</p>
+                            <p>Actores Principales:</p>
+                            <ul>
+                                @foreach ($pelicula->actoresPrincipales as $actor)
+                                    <li>{{ $actor->nombre_actor }}</li>
+                                @endforeach
+                            </ul> 
+                            <div class="options">
+                                <a href="{{ route('admin.peliculas.edit', $pelicula->id) }}" class="btn btn-primary">Editar</a>
+                                <form action="{{ route('admin.peliculas.destroy', $pelicula->id) }}" method="POST" style="display: inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                @endforeach
+            </section>
         </div>
-        @endforeach
-    </section>
-</div>
-
     </div>
     <!-- Fin contenido de la página -->
 

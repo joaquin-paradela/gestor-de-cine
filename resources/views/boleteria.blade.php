@@ -28,7 +28,7 @@
 
         <h2>{{ $pelicula->titulo }}</h2>
 
-        <form action="{{ route('compra') }}" method="POST">
+        <form action="{{ route('checkout') }}" method="POST">
             @csrf
 
             <!-- Selección de día -->
@@ -52,11 +52,6 @@
                 @endforeach
             </select>
         </div>
-        
-
-
-            
-
             <!-- Cantidad de entradas -->
             <div class="form-group">
                 <label for="quantity">Cantidad de entradas:</label>

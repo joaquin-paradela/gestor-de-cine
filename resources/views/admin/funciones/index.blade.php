@@ -23,13 +23,12 @@
         </div>
     @endif
     @if (session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
-        @endif
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     <!-- Contenido de la página -->
     <div class="container">
-     
         <h1>Funciones</h1>
 
         <!-- Botón para crear una nueva función -->
@@ -47,6 +46,7 @@
                     <th>Sala</th>
                     <th>Película</th>
                     <th>Tipo de sala</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,6 +59,16 @@
                         <td>{{ $funcion->sala->nombre }}</td>
                         <td>{{ $funcion->pelicula->titulo }}</td>
                         <td>{{ $funcion->sala->tipo_sala }}</td>
+                        <td>
+                            <!-- Botón de editar -->
+                            <a href="{{ route('admin.funciones.edit', $funcion->id) }}" class="btn btn-primary">Editar</a>
+                            <!-- Botón de eliminar -->
+                            <form action="{{ route('admin.funciones.destroy', $funcion->id) }}" method="POST" style="display: inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

@@ -30,6 +30,13 @@
                         @endif
                     @endauth
                 </li>
+                <li class="nav-item">
+                    @auth 
+                        @if(auth()->user()->rol_id == 1)
+                            <a class="nav-link" href="{{ url('/historial') }}">Historial de compra</a>
+                        @endif
+                    @endauth
+                </li>
             </ul>
 
 
