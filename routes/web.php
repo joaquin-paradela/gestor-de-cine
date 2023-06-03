@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\FuncionController;
 use App\Http\Controllers\EntradaController;
+use App\Http\Controllers\GeneroController;
 use Illuminate\Support\Facades\Route;
 
 //rutas para clientes logueados y no logueados 
@@ -55,9 +56,9 @@ Route::get('/contacto', function () {
         Route::get('/peliculas/index', [PeliculaController::class, 'index'])->name('admin.peliculas.index');
         Route::get('/admin/peliculas', [PeliculaController::class, 'create'])->name('admin.peliculas.create');
         Route::post('/admin/peliculas/store', [PeliculaController::class, 'store'])->name('admin.peliculas.store');
-        Route::get('/peliculas/{pelicula}/edit', [PeliculaController::class, 'edit'])->name('admin.peliculas.edit');
-        Route::put('/peliculas/{pelicula}', [PeliculaController::class, 'update'])->name('admin.peliculas.update');
-        Route::delete('/peliculas/{pelicula}', [PeliculaController::class, 'destroy'])->name('admin.peliculas.destroy');
+        Route::get('/peliculas/{id}/edit', [PeliculaController::class, 'edit'])->name('admin.peliculas.edit');
+        Route::put('/peliculas/{id}', [PeliculaController::class, 'update'])->name('admin.peliculas.update');
+        Route::delete('/peliculas/{id}', [PeliculaController::class, 'destroy'])->name('admin.peliculas.destroy');
 
         //rutas generos
         Route::get('/generos/index', [GeneroController::class, 'index'])->name('admin.generos.index');
@@ -67,9 +68,9 @@ Route::get('/contacto', function () {
         Route::get('/admin/funciones/create', [FuncionController::class, 'create'])->name('admin.funciones.create');
         Route::get('/admin/funciones/index', [FuncionController::class, 'index'])->name('admin.funciones.index');
         Route::post('/admin/funciones/store', [FuncionController::class, 'store'])->name('admin.funciones.store');
-        Route::get('/funciones/{funcion}/edit', [FuncionController::class, 'edit'])->name('admin.funciones.edit');
-        Route::put('/funciones/{funcion}', [FuncionController::class, 'update'])->name('admin.funciones.update'); 
-        Route::delete('/funciones/{funcion}', [FuncionController::class, 'destroy'])->name('admin.funciones.destroy');
+        Route::get('/funciones/{id}/edit', [FuncionController::class, 'edit'])->name('admin.funciones.edit');
+        Route::put('/funciones/{id}', [FuncionController::class, 'update'])->name('admin.funciones.update'); 
+        Route::delete('/funciones/{id}', [FuncionController::class, 'destroy'])->name('admin.funciones.destroy');
     });
 
 require __DIR__.'/auth.php';

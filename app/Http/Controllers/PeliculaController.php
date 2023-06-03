@@ -16,11 +16,6 @@ class PeliculaController extends Controller
         return view('admin.peliculas.index', compact('peliculas'));
     }
 
-    public function show()
-    {
-
-    }
-
     public function create()
     {
         $generos = Genero::all();
@@ -94,6 +89,22 @@ class PeliculaController extends Controller
         $pelicula->editarPelicula($datos);
 
         // Redireccionar o realizar alguna acción adicional
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $pelicula = Pelicula::findOrFail($id);
+            $pelicula->delete();
+
+            Session::flash('success', 'Pelicula eliminada correctamente');
+            return redirect()->route('admin.peliculas.index');
+        } catch (\Exception $e) {
+             
+            Session::flash('error', 'Error al eliminar la pelicula: ' . $e->getMessage());
+            return redirect()->back();
+        }
+        
     }
 
     

@@ -66,7 +66,7 @@
                             <form action="{{ route('admin.funciones.destroy', $funcion->id) }}" method="POST" style="display: inline-block;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                <button id="btnEliminar" type="submit" class="btn btn-danger">Eliminar</button>
                             </form>
                         </td>
                     </tr>
@@ -81,5 +81,20 @@
     <!-- Fin footer -->
 
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+    <script>
+      
+        var btnEliminar = document.getElementById('btnEliminar');
+
+   
+        btnEliminar.addEventListener('click', function (event) {
+          
+            var confirmacion = confirm('¿Estás seguro de que quieres eliminar esta película?');
+
+            if (!confirmacion) {
+                event.preventDefault();
+            }
+        });
+        
+    </script>
 </body>
 </html>

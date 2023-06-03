@@ -134,8 +134,20 @@ class FuncionController extends Controller
         }
     }
 
-    public function destroy()
+    public function destroy($id)
     {
+        try {
 
+            $funcion = Funcion::findOrFail($id);
+            $funcion->delete();
+    
+            Session::flash('success', 'Función eliminada correctamente');
+            return redirect()->route('admin.funciones.index');
+        } catch (\Exception $e) {
+            
+            Session::flash('error', 'Error al eliminar la función: ' . $e->getMessage());
+            return redirect()->back();
+        }
+      
     }
 }
