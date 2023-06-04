@@ -8,7 +8,7 @@
         <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
         <!--css Personalizado-->
        <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
-       <!-- Fonts -->
+        <!-- Fonts -->
 
        <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
        <link rel="preconnect" href="https://fonts.bunny.net">

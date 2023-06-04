@@ -16,8 +16,10 @@
                 </ul>
             </div>
 
-            <div class="col-lg-4 text-center">
+            <div class="col-lg-4 text-center justify-content-center">
+              <div class="row justify-content-center">
               <img src="{{ asset('Imagenes/ICONOS/Logo cine footer.png') }}" alt="Logo footer" id="logoSecundario">
+              </div>
               <p> Diseñado por <i>Gonzalez - Paradela -  Pastor</i></p>
           </div>
 
