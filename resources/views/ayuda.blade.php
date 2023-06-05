@@ -85,11 +85,11 @@
      <!-- Contenedor manual de usuario -->
      <div class="row text-center justify-content-center">
         <div class="col col-lg-4">
-          <div class="container border border-3 border-light border-opacity-25 rounded-top rounded-5" id="container-Manual-Usuario">
+          <div class="container align-items-center border border-3 border-light border-opacity-25 rounded-top rounded-5" id="container-Manual-Usuario">
             <h3>
               Descarga el Manual de Usuario Aquí
             </h3>
-            <a href="#" download="Manual-Usuario"><img src="{{ asset('Imagenes/ICONOS/Icono pdf.png') }}" alt="Icono descarga Manual de usuario" id="Manual-Usuario" ></a>
+            <a href="#" class="row align-items-center justify-content-center" download="Manual-Usuario"><img src="{{ asset('Imagenes/ICONOS/Icono pdf.png') }}" alt="Icono descarga Manual de usuario" id="Manual-Usuario" ></a>
           </div>
         </div>
      </div>

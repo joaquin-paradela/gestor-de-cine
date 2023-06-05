@@ -10,8 +10,8 @@
        <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
        <!-- Fonts -->
 
-       <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
-       <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
+        <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     </head>
 
@@ -35,7 +35,7 @@
       <div class="row Separador"></div>
       <!-- Promociones -->
       <div class="row justify-content-center Promociones" >
-          <div class="container col col-lg-8 border-3 border-top border-bottom">
+          <div class="container col col-lg-8 border-top border-bottom border-3 border-start-0 border-end-0">
             <div class="row">
               <div class=" col col-lg-6">
                 <h4 class="text-start"> Promoción Banco Provincia </h4>
@@ -49,7 +49,7 @@
       </div>
 
       <div class="row justify-content-center Promociones" >
-        <div class="container col col-lg-8 border-3 border-top border-bottom">
+        <div class="container col col-lg-8 border-top border-bottom border-3 border-start-0 border-end-0">
           <div class="row">
             <div class=" col col-lg-6">
               <h4 class="text-start"> Promoción Banco Galicia </h4>

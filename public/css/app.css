@@ -153,13 +153,14 @@ li.nav-item{
 /* Inicio Pagina Ayuda */
 #filaAyuda{
     background-image: url("../Imagenes/Deep\ Space.jpg");
+    background-size: cover;
 }
 #filaAyuda h2{
     color: whitesmoke;
     font-size: 4rem;
     padding-left: 1.5rem;
     padding-top: 1.5rem;
-    padding-bottom: 1.7rem; 
+    padding-bottom: 1.7rem;
 }
 
 #accordionAyuda .accordion-item{
@@ -201,6 +202,7 @@ li.nav-item{
 
 #Manual-Usuario{
     width: 150px;
+    margin-top: 1rem;
 }
 
 /* Fin Pagina Ayuda */
@@ -209,6 +211,7 @@ li.nav-item{
 
 #FilaPromociones{
     background-image: url("../Imagenes/Deep\ Space.jpg");
+    background-size: cover;
     color: whitesmoke;
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -241,6 +244,7 @@ div.Promociones{
     padding-top: 3rem;
     padding-bottom: 3rem;
     background-image: url("../Imagenes/Lizard.jpg");
+    background-size: cover;
 }
 
 div.Promociones div{
@@ -432,3 +436,52 @@ textarea#consulta{
 
 
 /* Fin Pagina Contacto*/
+
+/* Guest.blade */
+
+
+body div#BodyGuest{
+    background-image: url("../Imagenes/Lizard.jpg");
+    
+}
+div#DivGuest{
+    background-image: url("../Imagenes/Royal.jpg");
+}
+
+body div#BodyGuest div a img{
+    width: 300px;
+}
+
+/* Fin Guest.blade */
+
+/* Pagina Login */
+
+form.FormIngreso{
+    background-image: url("../Imagenes/Royal.jpg");
+}
+
+
+form.FormIngreso div label{
+    color: whitesmoke;
+    font-size: 1.06rem;
+    
+}
+
+ form.FormIngreso div a{
+    color: whitesmoke;
+    transition: all 0.2s ease-in;
+}
+
+form.FormIngreso div a:hover{
+    color: red;
+}
+
+form.FormIngreso div label span{
+    color: whitesmoke;
+} 
+
+
+
+
+
+/* Fin pagina Login  */
