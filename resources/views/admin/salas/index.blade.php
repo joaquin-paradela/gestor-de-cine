@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Gestión de Cine - Géneros</title>
+    <title>Sistema de Gestión de Cine - Salas</title>
     <!-- Bootstrap -->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
     <!-- CSS Personalizado -->
@@ -34,21 +34,23 @@
 
     <!-- Contenido de la página -->
     <div class="container">
-        <h1>Géneros</h1>
+        <h1>Salas</h1>
         <div class="options">
-            <a href="{{ route('admin.generos.create') }}" class="btn btn-primary">Agregar Género</a>
+            <a href="{{ route('admin.salas.create') }}" class="btn btn-primary">Agregar Sala</a>
         </div>
         <div class="container text-center"> 
-            <section class="row" id="generos">
+            <section class="row" id="salas">
                 <ul>
-                    @foreach ($generos as $genero)
+                    @foreach ($salas as $sala)
                         <li>
                             <div class="card text-bg-dark text-center">
                                 <div class="card-body">
-                                    <h3>{{ $genero->nombre }}</h3>
+                                    <h3>{{ $sala->nombre }}</h3>
+                                    <p>Tipo de Sala: {{ $sala->tipo_sala }}</p>
+                                    <p>Capacidad de Asientos: {{ $sala->capacidad_asientos }}</p>
                                     <div class="options">
-                                        <a href="{{ route('admin.generos.edit', $genero->id) }}" class="btn btn-primary">Editar</a>
-                                        <form action="{{ route('admin.generos.destroy', $genero->id) }}" method="POST" style="display: inline">
+                                        <a href="{{ route('admin.salas.edit', $sala->id) }}" class="btn btn-primary">Editar</a>
+                                        <form action="{{ route('admin.salas.destroy', $sala->id) }}" method="POST" style="display: inline">
                                             @csrf
                                             @method('DELETE')
                                             <button id="btnEliminar" type="submit" class="btn btn-danger">Eliminar</button>
@@ -75,7 +77,7 @@
 
         btnEliminar.addEventListener('click', function (event) {
           
-            var confirmacion = confirm('¿Estás seguro de que quieres eliminar este género?');
+            var confirmacion = confirm('¿Estás seguro de que quieres eliminar esta sala?');
 
             if (!confirmacion) {
                 event.preventDefault();

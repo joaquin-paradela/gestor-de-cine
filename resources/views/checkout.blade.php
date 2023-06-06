@@ -77,13 +77,19 @@
 
         const pago = parseFloat(pagoInput.value);
 
-        if (pago < precioTotal) {
+        if (isNaN(pago)) {
+            alert('Solo se aceptan números en el campo de pago.');
+            return;
+        } else if (pago < precioTotal) {
             alert('El pago debe ser igual al precio total, está intentando ingresar un monto menor.');
             return;
         } else if (pago > precioTotal) {
             alert('El pago debe ser igual al precio total, está intentando ingresar un monto mayor.');
             return;
         }
+
+
+        
 
         formularioCompra.submit();
     });

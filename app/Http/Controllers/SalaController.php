@@ -10,9 +10,13 @@ class SalaController extends Controller
     public function index()
     {
        $salas = Sala::all();
-       return view('index.html', compact('salas'));
+       return view('admin.salas.index', compact('salas'));
     }
 
+    public function create()
+    {
+        return view('admin.salas.create');
+    }
     public function store(Request $request)
     {
         // Validar y obtener los datos del formulario

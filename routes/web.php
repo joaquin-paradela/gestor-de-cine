@@ -7,6 +7,7 @@ use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\FuncionController;
 use App\Http\Controllers\EntradaController;
 use App\Http\Controllers\GeneroController;
+use App\Http\Controllers\SalaController;
 use Illuminate\Support\Facades\Route;
 
 //rutas para clientes logueados y no logueados 
@@ -19,7 +20,7 @@ Route::get('/ayuda', function () {
 });
 
 Route::get('/promociones', function () {
-    return view('promociones');
+    return view('admin.promociones.index');
 });
 
 Route::get('/contacto', function () {
@@ -62,6 +63,17 @@ Route::get('/contacto', function () {
 
         //rutas generos
         Route::get('/generos/index', [GeneroController::class, 'index'])->name('admin.generos.index');
+        Route::get('/generos/create', [GeneroController::class, 'create'])->name('admin.generos.create');
+        Route::get('/generos/{id}/edit', [GeneroController::class, 'edit'])->name('admin.generos.edit');
+        Route::delete('/generos/{id}', [GeneroController::class, 'destroy'])->name('admin.generos.destroy');
+        Route::post('/admin/generos/store', [GeneroController::class, 'store'])->name('admin.generos.store');
+
+        //rutas salas
+        Route::get('/salas/index', [SalaController::class, 'index'])->name('admin.salas.index');
+        Route::get('/salas/create', [SalaController::class, 'create'])->name('admin.salas.create');
+        Route::get('/salas/{id}/edit', [SalaController::class, 'edit'])->name('admin.salas.edit');
+        Route::delete('/salas/{id}', [SalaController::class, 'destroy'])->name('admin.salas.destroy');
+        Route::post('/admin/salas/store', [GeneroController::class, 'store'])->name('admin.salas.store');
 
     
         //rutas funciones

@@ -10,7 +10,9 @@ class GeneroController extends Controller
     
     public function index()
     {
-    
+        $generos = Genero::all();
+
+        return view('admin.generos.index', compact('generos'));
     }
 
     public function show()
@@ -20,7 +22,16 @@ class GeneroController extends Controller
 
     public function create()
     {
+        return view('admin.generos.create');
         
+    }
+    public function store()
+    {
+        
+    }
+    public function edit($id)
+    {
+
     }
 
 }
