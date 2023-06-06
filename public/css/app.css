@@ -48,6 +48,34 @@ body{
 
 /*Fin modificaciones Carousel*/
 
+/* Buscador Cartelera */
+form#Buscador{
+    margin-top: 1rem;
+}
+
+form#Buscador div div input{
+   background-image: url("../Imagenes/Royal.jpg");
+   background-size: cover;
+   color: whitesmoke;
+}
+
+form#Buscador div div input::placeholder{
+    color: whitesmoke;
+ }
+
+ form#Buscador div div button{
+    background-image: url("../Imagenes/Deep\ Space.jpg");
+    background-size: cover;
+    color: whitesmoke;
+    transition: all 0.3s ease-in;
+ }
+ form#Buscador div div button:hover{
+    box-shadow: 1px 1px 9px rgb(45, 108, 233);
+ }
+
+/* Fin Buscador Cartelera */
+
+
 /*Modificaiones CARTELERA*/
 #filaCartelera{
     background-image: url("../Imagenes/Deep\ Space.jpg");
