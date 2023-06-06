@@ -46,8 +46,8 @@
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     @foreach ($peliculas as $pelicula)
-                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                        <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" class="img-fluid carousel-image" alt="{{ $pelicula->titulo }}">
+                    <div class="carousel-item {{ $loop->first ? 'active' : '' }} justify-content-center">
+                        <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" class="img-fluid carousel-image d-block w-100" alt="{{ $pelicula->titulo }}">
                         <div class="carousel-caption d-none d-md-block" id="epigrafe">
                             <h4>{{ $pelicula->titulo }}</h4>
                             <p>"{{ $pelicula->descripcion }}"</p>
