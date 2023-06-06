@@ -73,7 +73,7 @@ Route::get('/contacto', function () {
         Route::get('/salas/create', [SalaController::class, 'create'])->name('admin.salas.create');
         Route::get('/salas/{id}/edit', [SalaController::class, 'edit'])->name('admin.salas.edit');
         Route::delete('/salas/{id}', [SalaController::class, 'destroy'])->name('admin.salas.destroy');
-        Route::post('/admin/salas/store', [GeneroController::class, 'store'])->name('admin.salas.store');
+        Route::post('/admin/salas/store', [SalaController::class, 'store'])->name('admin.salas.store');
 
     
         //rutas funciones

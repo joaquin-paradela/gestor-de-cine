@@ -27,7 +27,7 @@ class Genero extends Model
     //funcionalidades
 
 
-    public function agregarGenero($nombre)
+    public static function agregarGenero($nombre)
     {
         $genero = Genero::create(['nombre' => $nombre]);
         return $genero;
