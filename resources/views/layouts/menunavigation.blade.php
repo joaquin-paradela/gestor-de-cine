@@ -23,13 +23,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/promociones') }}">Promociones</a>
                 </li>
-                <li class="nav-item">
-                    @auth 
-                        @if(auth()->user()->rol_id == 2)
-                            <a class="nav-link" href="{{ url('/admin') }}">Admin</a>
-                        @endif
+                <li class="nav-item dropdown">
+                @auth 
+                @if(auth()->user()->rol_id == 2)
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Admin
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('admin.peliculas.index') }}">Peliculas</a>
+                        <a class="dropdown-item" href="{{ route('admin.funciones.index') }}">Funciones</a>
+                        <a class="dropdown-item" href="{{ route('admin.salas.index') }}">Salas</a>
+                        <a class="dropdown-item" href="{{ route('admin.generos.index') }}">Generos</a>
+                       
+                    </div>
+                    @endif
                     @endauth
                 </li>
+             
                 <li class="nav-item">
                     @auth 
                         @if(auth()->user()->rol_id == 1)

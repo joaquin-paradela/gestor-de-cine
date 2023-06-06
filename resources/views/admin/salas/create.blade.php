@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Género</title>
+    <title>Agregar Sala</title>
     <!-- Bootstrap -->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
     <!-- CSS Personalizado -->
@@ -29,20 +29,35 @@
     <!-- Fin menú navegación -->
     <!-- Contenido de la página -->
     <div class="container">
-        <h1>Crear Género</h1>
+        <h1>Agregar Sala</h1>
 
-        <!-- Formulario para crear un género -->
-        <form action="{{ route('admin.generos.store') }}" method="POST">
+        <!-- Formulario para agregar una sala -->
+        <form action="{{ route('admin.salas.store') }}" method="POST">
             @csrf
 
-            <!-- Nombre del género -->
+            <!-- Nombre de la sala -->
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" required>
             </div>
 
+            <!-- Tipo de sala -->
+            <div class="form-group">
+                <label for="tipo_sala">Tipo de Sala:</label>
+                <select class="form-control" id="tipo_sala" name="tipo_sala" required>
+                    <option value="2D">2D</option>
+                    <option value="3D">3D</option>
+                </select>
+            </div>
+
+            <!-- Capacidad de asientos -->
+            <div class="form-group">
+                <label for="capacidad_asientos">Capacidad de Asientos:</label>
+                <input type="number" class="form-control" id="capacidad_asientos" name="capacidad_asientos" required>
+            </div>
+
             <div class="text-center">
-                <button type="submit" class="btn btn-primary">Crear Género</button>
+                <button type="submit" class="btn btn-primary">Agregar Sala</button>
             </div>
         </form>
     </div>

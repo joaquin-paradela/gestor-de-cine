@@ -22,12 +22,13 @@ class Sala extends Model
         return $this->hasMany(Funcion::class);
     }
 
-    public function agregarSala($nombre, $tipoSala, $capacidadAsientos)
+    public static function agregarSala($nombre, $tipoSala, $capacidadAsientos)
     {
         $sala = new Sala();
         $sala->nombre = $nombre;
         $sala->tipo_sala = $tipoSala;
         $sala->capacidad_asientos = $capacidadAsientos;
+        $sala->save();
 
         return $sala;
     }
