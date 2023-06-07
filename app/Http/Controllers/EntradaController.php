@@ -121,7 +121,13 @@ class EntradaController extends Controller
         $user = Auth::user(); // Obtener el usuario autenticado
         $puntostotales = $user->puntos_acumulados;
 
-        $entradas = $user->entradas()->orderByDesc('id')->get(); // Obtener todas las entradas del usuario 
+        $entradas = $user->entradas()
+        ->with(['funcion' => function ($query) {
+            $query->withTrashed(); // Incluir funciones eliminadas lógicamente
+        }, 'funcion.pelicula'])
+        ->orderByDesc('id')
+        ->get();
+       
 
         return view('historial', ['entradas' => $entradas, 'puntostotales' => $puntostotales]);
     }

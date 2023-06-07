@@ -66,7 +66,7 @@
                             <form action="{{ route('admin.funciones.destroy', $funcion->id) }}" method="POST" style="display: inline-block;">
                                 @csrf
                                 @method('DELETE')
-                                <button id="btnEliminar" type="submit" class="btn btn-danger">Eliminar</button>
+                                <button id="btnEliminar" type="submit" class="btn btn-warning">Deshabilitar de cartelera</button>
                             </form>
                         </td>
                     </tr>

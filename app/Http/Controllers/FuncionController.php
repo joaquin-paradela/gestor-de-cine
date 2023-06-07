@@ -38,8 +38,8 @@ class FuncionController extends Controller
     }
     public function index()
     {
-        $funciones = Funcion::all();
-
+        // Obtener todas las funciones, incluidas las eliminadas lógicamente
+        $funciones = Funcion::withTrashed()->orderByDesc('id')->get();
         return view('admin.funciones.index', compact('funciones'));
     }
     public function carrusel()
@@ -59,7 +59,7 @@ class FuncionController extends Controller
 
     public function edit($id)
     {
-        $funcion = Funcion::find($id);
+        $funcion = Funcion::withTrashed()->find($id);
 
         if (!$funcion) {
             // Si no se encuentra la función, redirigir o mostrar un mensaje de error
