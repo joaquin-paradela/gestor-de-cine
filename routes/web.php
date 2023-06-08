@@ -43,7 +43,7 @@ Route::get('/contacto', function () {
         Route::post('/boleteria/store', [EntradaController::class, 'store'])->name('store');
         Route::get('/comprarealizada/{entradaId}', [EntradaController::class, 'compraRealizada'])->name('comprarealizada');
 
-        //puntos e historial de compra
+        //historial de compra
         Route::get('/historial', [EntradaController::class, 'historial'])->name('historial');
         
     });

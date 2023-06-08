@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\Session;
 
 class EntradaController extends Controller
 {
+    public function metodoPago(Request $request)
+    {
+        $formaPago = $request->input('formaPago');
+         if($formaPago === 'puntos'){
+            return view('puntos');
+         }
+
+    }
     public function boleteria($peliculaId)
     {
         $pelicula = Pelicula::find($peliculaId);
@@ -73,14 +81,31 @@ class EntradaController extends Controller
         $sala->save();
 
         
-        // Calcular los puntos obtenidos
-        $puntosObtenidos = $cantidadEntradas * 5;
+      
         // Obtener el usuario autenticado
         $user = Auth::user();
 
-        // Actualizar los puntos acumulados del usuario
-        $user->puntos_acumulados += $puntosObtenidos;
-        $user->save();
+        if ($request->formaPago === 'puntos') {
+            // Calcular la cantidad de puntos necesarios para comprar las entradas
+            $puntosNecesarios = $cantidadEntradas * 20;
+            
+            // Verificar si el usuario tiene suficientes puntos para realizar la compra
+            if ($puntosNecesarios > $user->puntos_acumulados) {
+                return redirect()->back()->with('error', 'No tienes suficientes puntos para realizar la compra.');
+            }
+    
+            // Restar los puntos utilizados del total acumulado del usuario
+            $user->puntos_acumulados -= $puntosNecesarios;
+            $user->save();
+
+            $puntosObtenidos = 0;
+        } else {
+              // Calcular los puntos obtenidos
+            $puntosObtenidos = $cantidadEntradas * 5;
+            // Actualizar los puntos acumulados del usuario
+            $user->puntos_acumulados += $puntosObtenidos;
+            $user->save();
+        }
         
         // Obtener la fecha actual
         $fechaCompra = date('Y-m-d');

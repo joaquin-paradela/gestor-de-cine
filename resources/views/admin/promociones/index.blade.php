@@ -32,8 +32,22 @@
         <div class="container col col-lg-8 border-top border-bottom border-3 border-start-0 border-end-0">
             <div class="row">
                 <div class="col col-lg-6">
-                    <h4 class="text-start">Promoción 2x1 en Películas 2D</h4>
-                    <p>Por cada <strong>X</strong> cantidad de puntos obtenidos, puedes disfrutar de una promoción 2x1 en películas 2D.</p>
+                    <h4 class="text-start">Nueva promoción</h4>
+                    <p>Por cada compra de entrada, obtendrás <strong>5</strong> puntos para ir acumulando hasta llegar para comprar entradas solo con puntos !</p>
+                </div>
+                <div class="col col-lg-6">
+                    <img src="{{ asset('Imagenes/pelicula_2d.jpg') }}" alt="Películas 2D" class="col col-lg-4">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Promociones -->
+    <div class="row justify-content-center Promociones">
+        <div class="container col col-lg-8 border-top border-bottom border-3 border-start-0 border-end-0">
+            <div class="row">
+                <div class="col col-lg-6">
+                    <h4 class="text-start">Nueva promoción</h4>
+                    <p>Por cada <strong>20</strong> puntos acumulados, puedes disfrutar de una promoción de 1 entrada cada 20 puntos en películas 2D y 3D.</p>
                 </div>
                 <div class="col col-lg-6">
                     <img src="{{ asset('Imagenes/pelicula_2d.jpg') }}" alt="Películas 2D" class="col col-lg-4">
@@ -42,19 +56,7 @@
         </div>
     </div>
 
-    <div class="row justify-content-center Promociones">
-        <div class="container col col-lg-8 border-top border-bottom border-3 border-start-0 border-end-0">
-            <div class="row">
-                <div class="col col-lg-6">
-                    <h4 class="text-start">Promoción 2x1 en Películas 3D</h4>
-                    <p>Por cada <strong>X</strong> cantidad de puntos obtenidos, puedes disfrutar de una promoción 2x1 en películas 3D.</p>
-                </div>
-                <div class="col col-lg-6">
-                    <img src="{{ asset('Imagenes/pelicula_3d.jpg') }}" alt="Películas 3D" class="col col-lg-4">
-                </div>
-            </div>
-        </div>
-    </div>
+   
 
     <!-- Inicio Footer -->
     @include('layouts.footer')

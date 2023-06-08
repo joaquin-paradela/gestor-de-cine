@@ -38,6 +38,7 @@ class FuncionController extends Controller
     }
     public function index()
     {
+        
         // Obtener todas las funciones, incluidas las eliminadas lógicamente
         $funciones = Funcion::withTrashed()->orderByDesc('id')->get();
         return view('admin.funciones.index', compact('funciones'));
