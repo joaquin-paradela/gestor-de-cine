@@ -12,14 +12,7 @@ use Illuminate\Support\Facades\Session;
 
 class EntradaController extends Controller
 {
-    public function metodoPago(Request $request)
-    {
-        $formaPago = $request->input('formaPago');
-         if($formaPago === 'puntos'){
-            return view('puntos');
-         }
-
-    }
+    
     public function boleteria($peliculaId)
     {
         $pelicula = Pelicula::find($peliculaId);
@@ -58,9 +51,6 @@ class EntradaController extends Controller
 
     public function store(Request $request)
     {
-        
-       
-       
         // Obtener el ID del cliente autenticado
         $userId = Auth::id();
         $funcionId =  $request->funcionSeleccionada;
@@ -91,7 +81,8 @@ class EntradaController extends Controller
             
             // Verificar si el usuario tiene suficientes puntos para realizar la compra
             if ($puntosNecesarios > $user->puntos_acumulados) {
-                return redirect()->back()->with('error', 'No tienes suficientes puntos para realizar la compra.');
+                Session::flash('error', 'No tenes los puntos necesarios para realizar la compra');
+                return redirect()->back();
             }
     
             // Restar los puntos utilizados del total acumulado del usuario
