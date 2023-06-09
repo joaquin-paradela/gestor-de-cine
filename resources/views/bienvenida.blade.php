@@ -28,16 +28,18 @@
         </header>
       <!-- Fin menú navegación -->
       <!-- Agrega el formulario de búsqueda antes de la sección de la cartelera -->
+      <div class="row justify-content-center" id="ContBuscador">  
         <div class="container justify-content-center align-items-center">
-            <form action="{{ route('buscar') }}" method="GET" class="row justify-content-center mb-4" id="Buscador">
-                <div class="col-md-6">
-                    <div class="input-group">
-                        <input type="text" name="busqueda" class="form-control" placeholder="Buscar por nombre de película, actor principal o tipo de sala">
-                        <button type="submit" class="btn border border-white">Buscar</button>
+                <form action="{{ route('buscar') }}" method="GET" class="row justify-content-center mb-4" id="Buscador">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="input-group">
+                            <input type="text" name="busqueda" class="form-control" placeholder="Buscar por nombre de película, actor principal o tipo de sala">
+                            <button type="submit" class="btn border border-white">Buscar</button>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+      </div>
 
 
       <!-- Carrusel dinamico -->

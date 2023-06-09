@@ -18,46 +18,57 @@
        @include('layouts.menunavigation')
       <!-- Fin menú navegación -->
 
-      <div class="row align-items-end" id="FondoContacto">
-        <h2 class="border border-3 rounded-top rounded-5">Contáctenos</h2>
-        <p> Para sus consultas, envíenos un correo electrónico utilizando el siguiente formulario</p>
+      <div class="row align-items-end justify-content-end" id="FondoContacto">
+        <div class="col">
+          <h2 class="efectoTexto">Contáctenos</h2>
+          <p> Para sus consultas, envíenos un correo electrónico utilizando el siguiente formulario</p>
+        </div>
       </div>
 
-      <div class="row Separador border-top border-5"></div>
+
 
       <div class="row align-items-center justify-content-center" >
         <img src="{{ asset('Imagenes/ICONOS/icono-contacto.png') }}" alt="Logo" id="LogoContacto" >
       </div>
 
-
+      
 
     <div class="row justify-content-center align-items-center" >  
         <!-- Formulario Contacto -->
         <div class="container border-2 border-start border-end" id="FormularioContacto">
-          <div class="mb-3 text-center justify-content-center">
+          <div class="row mb-3 text-center justify-content-center ">
             <label for="exampleFormControlInput1" class="form-label border border-3 rounded-bottom">Email</label>
             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre@email.com">
           </div>
-          <div class="mb-3 text-center justify-content-center">
+          <div class="row mb-3 text-center justify-content-center">
             <label for="exampleFormControlTextarea1" class="form-label border border-3 rounded-bottom">Asunto</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder="Escribe el asunto aquí"></textarea>
           </div>
-          <div class="mb-3 text-center">
+          <div class="row mb-3 text-center justify-content-center">
             <label for="exampleFormControlTextarea1" class="form-label border border-3 rounded-bottom">Consulta</label>
             <textarea class="form-control" id="consulta" rows="3" placeholder="Escribe tu consulta aquí"></textarea>
           </div>
-          <div class="mb-3 text-center">
-            <input type="submit" class="btn btn-success" id="exampleFormControlInput1" placeholder="nombre@email.com">
+          <div class="row mb-3 text-center justify-content-center">
+            <input type="submit" class="btn btn-success bg-success" id="exampleFormControlInput1" placeholder="nombre@email.com">
           </div>
       </div>
     </div>
       <!-- Fin Formulario Contacto -->
 
-    <div class="row align-items-center justify-content-center border-2 border-top border-bottom" id="FilaMapa">
-        <div class="col col-lg-6 text-center">
-              <h4> Nuestra Sucursal <img src="{{ asset('Imagenes/ICONOS/mapa.png') }}" alt="mapa" id="Mapa" ></h4> 
+      <div class="Separador"></div>
+
+    <div class="row align-items-center border-2 border-top border-bottom" id="FilaMapa">
+        <div class="col col-lg-6 justify-content-around align-items-center">
+          <div class="row align-items-center">
+            <div class="col col-lg-8 text-end">
+              <h4> Nuestra Sucursal</h4>
+            </div> 
+            <div class="col col-lg-4 justify-content-center">
+              <img src="{{ asset('Imagenes/ICONOS/mapa.png') }}" alt="mapa" id="Mapa" >
+            </div> 
+          </div>
         </div>
-        <div class="col col-lg-6 align-items-center">
+        <div class="col col-lg-6 align-items-center justify-content-start">
           <iframe class="border-3 rounded-bottom-4" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.5591441865295!2d-58.60460592343556!3d-34.640579459447174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc951c0fe2d9f5%3A0x9f1c540898efecbe!2sUTN%20-%20Facultad%20Regional%20Haedo!5e0!3m2!1ses!2sar!4v1685314182348!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
