@@ -64,12 +64,12 @@ class PeliculaController extends Controller
 
     public function edit($id)
     {
-            // Obtener la película a editar por su ID
-            $pelicula = Pelicula::findOrFail($id);
-            $generos = Genero::all();
-            $actoresPrincipales = $pelicula->actoresPrincipales;
-
-            return view('admin.peliculas.edit', compact('pelicula', 'generos', 'actoresPrincipales'));
+        // Obtener la película a editar por su ID
+        $pelicula = Pelicula::findOrFail($id);
+        $generos = Genero::all();
+        $actoresPrincipales = $pelicula->actoresPrincipales;
+    
+        return view('admin.peliculas.edit', compact('pelicula', 'generos', 'actoresPrincipales'));
     }
 
     public function update(Request $request, $id)
@@ -79,7 +79,6 @@ class PeliculaController extends Controller
             'titulo' => 'required',
             'duracion' => 'required',
             'genero_id' => 'required',
-            
         ]);
 
         // Obtener la película a editar por su ID
@@ -89,6 +88,9 @@ class PeliculaController extends Controller
         $pelicula->editarPelicula($datos);
 
         // Redireccionar o realizar alguna acción adicional
+        // ...
+
+        return redirect()->route('admin.peliculas.index')->with('success', 'Película actualizada exitosamente');
     }
 
     public function destroy($id)

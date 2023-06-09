@@ -48,4 +48,20 @@ class GeneroController extends Controller
 
     }
 
+    public function destroy($id)
+    {
+        try {
+            $genero = Genero::find($id);
+            $genero->delete();
+            Session::flash('success', 'Se eliminó el genero exitosamente');
+            // Redireccionar a la vista admin.peliculas.index
+            return redirect()->route('admin.generos.index');
+        
+        } catch (\Exception $e) {
+
+            return redirect()->back();
+        }
+        
+    }
+
 }

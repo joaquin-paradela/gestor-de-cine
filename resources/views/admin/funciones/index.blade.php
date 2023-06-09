@@ -60,14 +60,17 @@
                         <td>{{ $funcion->pelicula->titulo }}</td>
                         <td>{{ $funcion->sala->tipo_sala }}</td>
                         <td>
+                        @if ($peliculas->contains($funcion->pelicula))
                             <!-- Botón de editar -->
                             <a href="{{ route('admin.funciones.edit', $funcion->id) }}" class="btn btn-primary">Editar</a>
                             <!-- Botón de eliminar -->
+                             <!-- Botón de deshabilitar solo si la función está en cartelera -->
                             <form action="{{ route('admin.funciones.destroy', $funcion->id) }}" method="POST" style="display: inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button id="btnEliminar" type="submit" class="btn btn-warning">Deshabilitar de cartelera</button>
                             </form>
+                        @endif
                         </td>
                     </tr>
                 @endforeach
@@ -88,7 +91,7 @@
    
         btnEliminar.addEventListener('click', function (event) {
           
-            var confirmacion = confirm('¿Estás seguro de que quieres eliminar esta película?');
+            var confirmacion = confirm('¿Estás seguro de que queres deshabilitar esta película?');
 
             if (!confirmacion) {
                 event.preventDefault();

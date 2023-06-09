@@ -125,6 +125,8 @@ const abonarForm = document.getElementById('abonarForm');
     const realizarCompraPuntosBtn = document.getElementById('btnCompraPuntos');
     const precioTotal = parseFloat("{{ $precioTotal }}");
     const puntosAcumulados = parseInt("{{ Auth::user()->puntos_acumulados }}");
+    const cantidadEntradas = parseInt("{{ $cantidadEntradas }}");
+    const puntosNecesarios = cantidadEntradas * 20;
    
 
     realizarCompraBtn.addEventListener('click', function(event) {
@@ -146,7 +148,16 @@ const abonarForm = document.getElementById('abonarForm');
         abonarForm.submit();
     });
 
+    
+
     realizarCompraPuntosBtn.addEventListener('click', function(event) {
+        event.preventDefault(); //detenemos el proceso
+
+        if(puntosAcumulados < puntosNecesarios){
+            alert('No tenes los puntos necesarios para comprar las entradas');
+            return;
+        }
+
         
             puntosForm.submit();
     });

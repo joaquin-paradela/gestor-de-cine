@@ -42,7 +42,7 @@
 
             <div class="form-group">
                 <label for="genero">Género:</label>
-                <select name="genero" id="genero" class="form-control" required>
+                <select name="genero_id" id="genero_id" class="form-control" required>
                     @foreach ($generos as $genero)
                         <option value="{{ $genero->id }}" {{ $pelicula->genero_id == $genero->id ? 'selected' : '' }}>{{ $genero->nombre }}</option>
                     @endforeach

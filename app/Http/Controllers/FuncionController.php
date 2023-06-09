@@ -38,10 +38,10 @@ class FuncionController extends Controller
     }
     public function index()
     {
-        
+        $peliculas = Pelicula::has('funciones')->get()->unique();
         // Obtener todas las funciones, incluidas las eliminadas lógicamente
         $funciones = Funcion::withTrashed()->orderByDesc('id')->get();
-        return view('admin.funciones.index', compact('funciones'));
+        return view('admin.funciones.index', compact('funciones', 'peliculas'));
     }
     public function carrusel()
     {
@@ -142,11 +142,11 @@ class FuncionController extends Controller
             $funcion = Funcion::findOrFail($id);
             $funcion->delete();
     
-            Session::flash('success', 'Función eliminada correctamente');
+            Session::flash('success', 'Función deshabilitada de cartelera correctamente');
             return redirect()->route('admin.funciones.index');
         } catch (\Exception $e) {
             
-            Session::flash('error', 'Error al eliminar la función: ' . $e->getMessage());
+            Session::flash('error', 'Error al deshabilitar la función: ' . $e->getMessage());
             return redirect()->back();
         }
       
