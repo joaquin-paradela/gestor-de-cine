@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Genero;
 use App\Models\Pelicula;
+use App\Models\Entrada;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -97,17 +98,29 @@ class PeliculaController extends Controller
     {
         try {
             $pelicula = Pelicula::findOrFail($id);
+
+            $entradas = Entrada::all();
+
+            // Buscar si la película está siendo referenciada por alguna entrada
+            $referencedEntrada = $entradas->first(function ($entrada) use ($pelicula) {
+                return $entrada->funcion->pelicula->id === $pelicula->id;
+            });
+
+            if ($referencedEntrada) {
+                Session::flash('error', 'No se puede eliminar la película, ya que está siendo referenciada por una entrada');
+                return redirect()->back();
+            }
+
             $pelicula->delete();
 
             Session::flash('success', 'Pelicula eliminada correctamente');
             return redirect()->route('admin.peliculas.index');
         } catch (\Exception $e) {
-             
             Session::flash('error', 'Error al eliminar la pelicula: ' . $e->getMessage());
             return redirect()->back();
         }
-        
     }
+
 
     
 }
