@@ -29,7 +29,7 @@ class GeneroController extends Controller
     public function store(Request $request)
     {
         try {
-            $datos = $request->validate(['nombre' => 'required']);
+            $datos = $request->validate(['nombre' => 'required|unique:generos']);
 
             $genero = Genero::agregarGenero($datos['nombre']);
             Session::flash('success', 'Se creó el genero exitosamente');
