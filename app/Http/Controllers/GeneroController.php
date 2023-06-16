@@ -37,7 +37,7 @@ class GeneroController extends Controller
             return redirect()->route('admin.generos.index');
         } catch (\Exception $e) {
 
-            Session::flash('error', 'Error al crear el genero: ' . $e->getMessage());
+            Session::flash('error', 'Error al crear el género: El nombre ya está siendo utilizado');
             // Redireccionar a una vista de error o a la página anterior
             return redirect()->back();
         }
@@ -45,6 +45,33 @@ class GeneroController extends Controller
     }
     public function edit($id)
     {
+        try {
+            $genero = Genero::find($id);
+            return view('admin.generos.edit', compact('genero'));
+        } catch (\Exception $e) {
+            Session::flash('error', 'Error al obtener el género: ' . $e->getMessage());
+            return redirect()->back();
+        }
+
+    }
+    
+    public function update(Request $request, $id)
+    {
+        try {
+            $datos = $request->validate([
+                'nombre' => ['required']
+            ]);
+    
+            $genero = Genero::findOrFail($id);
+            $genero->nombre = $datos['nombre'];
+            $genero->save();
+    
+            Session::flash('success', 'Se actualizó el género exitosamente');
+            return redirect()->route('admin.generos.index');
+        } catch (\Exception $e) {
+            Session::flash('error', 'Error al actualizar el género: ' . $e->getMessage());
+            return redirect()->back();
+        }
 
     }
 

@@ -65,6 +65,7 @@ Route::get('/contacto', function () {
         Route::get('/generos/index', [GeneroController::class, 'index'])->name('admin.generos.index');
         Route::get('/generos/create', [GeneroController::class, 'create'])->name('admin.generos.create');
         Route::get('/generos/{id}/edit', [GeneroController::class, 'edit'])->name('admin.generos.edit');
+        Route::put('/generos/{id}', [GeneroController::class, 'update'])->name('admin.generos.update');
         Route::delete('/generos/{id}', [GeneroController::class, 'destroy'])->name('admin.generos.destroy');
         Route::post('/admin/generos/store', [GeneroController::class, 'store'])->name('admin.generos.store');
 
@@ -72,6 +73,7 @@ Route::get('/contacto', function () {
         Route::get('/salas/index', [SalaController::class, 'index'])->name('admin.salas.index');
         Route::get('/salas/create', [SalaController::class, 'create'])->name('admin.salas.create');
         Route::get('/salas/{id}/edit', [SalaController::class, 'edit'])->name('admin.salas.edit');
+        Route::put('/gsalas/{id}', [SalaController::class, 'update'])->name('admin.salas.update');
         Route::delete('/salas/{id}', [SalaController::class, 'destroy'])->name('admin.salas.destroy');
         Route::post('/admin/salas/store', [SalaController::class, 'store'])->name('admin.salas.store');
 

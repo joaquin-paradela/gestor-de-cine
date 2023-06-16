@@ -113,6 +113,15 @@ class FuncionController extends Controller
                 'pelicula_id' => 'required'
             ]);
 
+             // Verificar si ya existe una función con el mismo horario, fecha y sala
+                $existeFuncion = Funcion::where('fecha', $datos['fecha'])
+                ->where('hora_inicio', $datos['hora_inicio'])
+                ->where('sala_id', $datos['sala_id'])
+                ->exists();
+
+                if ($existeFuncion) {
+                    throw new \Exception('Ya existe una función con el mismo horario, fecha y sala');
+                }
         
 
             // Llamar a la función agregarFuncion() del modelo Funcion

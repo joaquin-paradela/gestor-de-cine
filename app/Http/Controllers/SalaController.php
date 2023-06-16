@@ -50,4 +50,43 @@ class SalaController extends Controller
         }
         
     }
+
+    public function edit($id)
+    {
+        try {
+            $sala = Sala::find($id);
+            return view('admin.salas.edit', compact('sala'));
+        } catch (\Exception $e) {
+            Session::flash('error', 'Error al obtener la sala: ' . $e->getMessage());
+            return redirect()->back();
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+         try {
+            $datos = $request->validate([
+                'nombre' => 'required',
+                'tipo_sala' => 'required',
+                'capacidad_asientos' => 'required',
+               
+            ]);
+
+            $sala = Sala::findOrFail($id);
+            $sala->nombre = $datos['nombre'];
+            $sala->tipo_sala = $datos['tipo_sala'];
+            $sala->capacidad_asientos = $datos['capacidad_asientos'];
+            $sala->save();
+
+            
+            Session::flash('success', 'Se actualizó la sala exitosamente');
+            return redirect()->route('admin.salas.index');
+         } catch (\Exception $e) {
+            Session::flash('error', 'Error al actualizar la sala: ');
+            return redirect()->back();
+         }
+        
+
+
+    }
 }
