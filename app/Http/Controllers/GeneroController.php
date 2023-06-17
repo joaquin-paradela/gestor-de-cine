@@ -16,11 +16,6 @@ class GeneroController extends Controller
         return view('admin.generos.index', compact('generos'));
     }
 
-    public function show()
-    {
-
-    }
-
     public function create()
     {
         return view('admin.generos.create');
