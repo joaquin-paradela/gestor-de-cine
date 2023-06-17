@@ -23,7 +23,7 @@ class SalaController extends Controller
         try {
             // Validar y obtener los datos del formulario
         $datos = $request->validate([
-            'nombre' => 'required',
+            'nombre' => 'required|unique:salas',
             'tipo_sala' => 'required',
             'capacidad_asientos' => 'required',
            
