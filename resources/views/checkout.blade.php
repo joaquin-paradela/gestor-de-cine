@@ -31,17 +31,21 @@
                 </div>
             @endif
     <!-- Fin menú navegación -->
-    <h2>Puntos acumulados : {{ Auth::user()->puntos_acumulados}}</h2>
 
-   
-        <p>Fecha seleccionada: {{ $fechaSeleccionada }}</p>
-        <p>Hora seleccionada: {{ $horaSeleccionada }}</p>
-        <p>Cantidad de entradas: {{ $cantidadEntradas }}</p>
-        <p>Precio de entrada unitaria: {{ $precioEntrada }}</p>
-        <p>Precio total: {{ $precioTotal }}</p>
-        <p>Pelicula seleccionada : {{ $funcionSeleccionada->pelicula->titulo }}</p>
-        <p>Sala seleccionada : {{ $funcionSeleccionada->sala->nombre }}</p>
-
+    <div class="row justify-content-center mt-5">
+        <div class="col-6 fs-4">
+           <div class="container border border-primary bg-dark rounded-2 text-center" id="datosCompra"> 
+                <p class="mb-3 mt-4 fst-italic bg-dark">Fecha seleccionada: <strong class="bg-primary fw-bold rounded-2">{{ $fechaSeleccionada }}</strong></p>
+                <p class="mb-3 mt-2 fst-italic bg-dark">Hora seleccionada: <strong class="bg-primary fw-bold rounded-2">{{ $horaSeleccionada }}</strong></p>
+                <p class="mb-3 mt-2 fst-italic bg-dark">Cantidad de entradas: <strong class="bg-primary fw-bold rounded-2">{{ $cantidadEntradas }}</strong></p>
+                <p class="mb-3 mt-2 fst-italic bg-dark">Precio de entrada unitaria: <strong class="bg-primary fw-bold rounded-2">{{ $precioEntrada }}</strong></p>
+                <p class="mb-3 mt-2 fst-italic bg-dark">Precio total: <strong class="bg-primary fw-bold rounded-2">{{ $precioTotal }}</strong></p>
+                <p class="mb-3 mt-2 fst-italic bg-dark">Pelicula seleccionada : <strong class="bg-primary fw-bold rounded-2">{{ $funcionSeleccionada->pelicula->titulo }}</strong></p>
+                <p class="mb-3 mt-2 fst-italic bg-dark">Sala seleccionada : <strong class="bg-primary fw-bold rounded-2">{{ $funcionSeleccionada->sala->nombre }}</strong></p>
+                <p class="mb-3 mt-2 fst-italic bg-dark">Puntos acumulados : <strong class="bg-primary fw-bold rounded-2">{{ Auth::user()->puntos_acumulados}}</strong></p>
+            </div>
+        </div>
+    </div>
 
         <!-- Formulario de selección de forma de pago -->
         <form id="formaPagoForm">

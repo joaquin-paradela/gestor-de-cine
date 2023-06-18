@@ -15,7 +15,7 @@ body{
 
 #epigrafe::before{
     content: "";
-    background: url("../Imagenes/Deep\ Space.jpg");
+    background: url("../Imagenes/Royal.jpg");
     opacity: 0.9;
     top: 0;
     left: 0;
@@ -23,6 +23,7 @@ body{
     right: 0;
     position: absolute;
     border-radius: 1.4rem;
+    
 }
 
 #epigrafe h4{
@@ -41,17 +42,23 @@ body{
     padding-left: 1rem;
 } 
 
-.carousel-image {
-        width: 1200px; /* Establece el ancho deseado para las imágenes */
-        height: 800px; /* Ajusta la altura automáticamente */
-        
-    }
+.carousel-image{
+    width: 1100px; /* Establece el ancho deseado para las imágenes */
+    height: 1200px; /* Ajusta la altura automáticamente */        
+}
+
+.carousel-inner{
+    background-image:url("../Imagenes/Deep\ Space.jpg") ;
+    background-size: cover;
+}
 
 /*Fin modificaciones Carousel*/
 
 /* Buscador Cartelera */
 div#ContBuscador{
     background-image: url("../Imagenes/Deep\ Space.jpg") ;
+    background-size: cover;
+    
 }
 
 form#Buscador{
@@ -89,27 +96,21 @@ form#Buscador div div input::placeholder{
 
 
 /*Modificaiones CARTELERA*/
-#filaCartelera{
-    background-image: url("../Imagenes/Deep\ Space.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding-bottom: 3rem;
-}
-
-#filaCartelera h2{
-    margin-left: 18rem;
-    margin-top: 2.5rem;
-    font-size: 3rem;
-    color: whitesmoke;
-}
 
 div.card{
     margin-bottom: 2rem;
-    height: 90%;
+    height: 97%; 
+ 
 } 
 
+div.card-body{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
 img.card-img-top{
-    height: 80%;
+    height: 90%;
 }
 
 #cartelera{
@@ -545,8 +546,139 @@ form.FormIngreso div label span{
     color: whitesmoke;
 } 
 
-
-
-
-
 /* Fin pagina Login  */
+
+/* Historial de compras */
+
+
+#HistorialCompra{
+    min-height: 700px;
+    margin-bottom: 2rem;
+    min-width: 70%;
+}
+
+#HistorialCompra p{
+    width: 20%;
+    font-size: 1.7rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+
+/* Fin historial de compras*/
+
+/*----------- CLASES GENERALES -----------*/
+
+.titulos{
+    background-image: url("../Imagenes/Deep\ Space.jpg");
+    background-size: cover;
+    color: whitesmoke;
+    font-size: 3.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.7rem; 
+
+}
+
+.Tablas{
+    background-image: url("../Imagenes/Royal.jpg");
+    background-size: cover;
+    color: whitesmoke;
+    font-size: 1.2rem;
+}
+
+.MinimoAnchoAlto{
+    min-height: 700px;
+    min-width: 70%;
+    margin-bottom: 2rem;
+}
+
+.Formularios{
+    width: 60%;
+    min-height: 400px;
+    background-image: url("../Imagenes/Lizard.jpg");
+    background-size: auto;
+    color: whitesmoke;
+    margin-top: 3rem;
+}
+
+.Formularios div label{
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    font-weight: bolder;
+}
+
+.Formularios div input{
+    font-size: 1.1rem;  
+}
+
+.Formularios div select{
+    font-size: 1.1rem; 
+}
+
+.Botones{
+    font-size: 1.27rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+/*----------- FIN CLASES GENERALES -----------*/
+
+
+/*------------------PAGINAS USUARIO ADMINISTRADOR------------------*/
+
+/* Formulario EDITAR GÉNERO */
+
+#FormularioEditGenero{
+    width: 40%;
+    height: 180px;
+    background-image: url("../Imagenes/Lizard.jpg");
+    background-size: auto;
+    color: whitesmoke;
+    margin-top: 3rem;
+}
+
+#FormularioEditGenero div label{
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    font-weight: bolder;
+}
+
+#FormularioEditGenero div input{
+    font-size: 1.1rem;  
+}
+
+#FormularioEditGenero div select{
+    font-size: 1.1rem; 
+}
+
+/* Fin Formulario EDITAR GÉNERO */
+
+/*------------------FIN PAGINAS USUARIO ADMINISTRADOR------------------*/
+
+/* Pagina CHECKOUT */
+
+#datosCompra{
+    color: whitesmoke;
+    width: 65%;
+    background-image: url("../Imagenes/Royal.jpg");
+    background-size: cover;
+}
+
+#datosCompra strong{
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    background-image: url("../Imagenes/Royal.jpg");
+    background-size: cover;
+}
+
+#datosCompra p{
+    background-image: url("../Imagenes/Royal.jpg");
+    background-size: cover;
+}
+
+
+/* Fin Pagina CHECKOUT */

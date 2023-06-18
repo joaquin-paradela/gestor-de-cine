@@ -27,8 +27,9 @@
           </div>     
         </header>
       <!-- Fin menú navegación -->
+
       <!-- Agrega el formulario de búsqueda antes de la sección de la cartelera -->
-      <div class="row justify-content-center" id="ContBuscador">  
+      <div class="row justify-content-center pb-2" id="ContBuscador">  
         <div class="container justify-content-center align-items-center">
                 <form action="{{ route('buscar') }}" method="GET" class="row justify-content-center mb-4" id="Buscador">
                     <div class="col-md-6 col-lg-5">
@@ -43,16 +44,18 @@
 
 
       <!-- Carrusel dinamico -->
-    <div class="row justify-content-center">
-        <div class="col">
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     @foreach ($peliculas as $pelicula)
-                    <div class="carousel-item {{ $loop->first ? 'active' : '' }} justify-content-center">
-                        <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" class="img-fluid carousel-image d-block w-100" alt="{{ $pelicula->titulo }}">
-                        <div class="carousel-caption d-none d-md-block" id="epigrafe">
-                            <h4>{{ $pelicula->titulo }}</h4>
-                            <p>"{{ $pelicula->descripcion }}"</p>
+                    <div class="carousel-item row {{ $loop->first ? 'active' : '' }} justify-content-center text-center">
+                       <div class="row justify-content-center text-center">
+                            <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" class="img-fluid carousel-image d-block" alt="{{ $pelicula->titulo }}">
+                        </div>
+                        <div class="col">
+                            <div class="carousel-caption d-none d-md-block" id="epigrafe">
+                                <h4>{{ $pelicula->titulo }}</h4>
+                                <p>"{{ $pelicula->descripcion }}"</p>
+                            </div> 
                         </div>
                     </div>
                     @endforeach
@@ -66,22 +69,20 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-        </div>
-    </div>
     <!-- Fin carrusel -->
 
    
 
     
       <!-- Seccion cartelera DINAMICA -->
-      <div class="row text-start" id="filaCartelera">
-        <h2>Cartelera</h2>
+      <div class="row text-center">
+        <h2 class="titulos pt-5 pb-5">Cartelera</h2>
        </div>
 
     <div class="container text-center">   
         <section class="row" id="cartelera">
             @foreach ($peliculas as $pelicula)
-            <div class="col-lg-3 col-md-4 col-sm-10">
+            <div class="col-lg-3 col-md-4 col-sm-10 mb-3">
                 <div class="card text-bg-dark text-center">
                     <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" class="card-img-top" alt="{{ $pelicula->titulo }}">
                     <div class="card-body">

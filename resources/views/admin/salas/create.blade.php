@@ -28,38 +28,43 @@
         @endif
     <!-- Fin menú navegación -->
     <!-- Contenido de la página -->
-    <div class="container">
-        <h1>Agregar Sala</h1>
 
-        <!-- Formulario para agregar una sala -->
-        <form action="{{ route('admin.salas.store') }}" method="POST">
-            @csrf
+    <div class="row">
+            <h1 class="titulos text-center">Agregar Sala</h1>
+        </div>
 
-            <!-- Nombre de la sala -->
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" required>
-            </div>
+    <div class="container MinimoAnchoAlto">
+        <div class="row justify-content-center">
+            <!-- Formulario para agregar una sala -->
+            <form action="{{ route('admin.salas.store') }}" class="Formularios row justify-content-center border border-primary rounded-2 " method="POST">
+                @csrf
 
-            <!-- Tipo de sala -->
-            <div class="form-group">
-                <label for="tipo_sala">Tipo de Sala:</label>
-                <select class="form-control" id="tipo_sala" name="tipo_sala" required>
-                    <option value="2D">2D</option>
-                    <option value="3D">3D</option>
-                </select>
-            </div>
+                <!-- Nombre de la sala -->
+                <div class="col-8">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
 
-            <!-- Capacidad de asientos -->
-            <div class="form-group">
-                <label for="capacidad_asientos">Capacidad de Asientos:</label>
-                <input type="number" class="form-control" id="capacidad_asientos" name="capacidad_asientos" required>
-            </div>
+                <!-- Tipo de sala -->
+                <div class="col-8">
+                    <label for="tipo_sala">Tipo de Sala:</label>
+                    <select class="form-control" id="tipo_sala" name="tipo_sala" required>
+                        <option value="2D">2D</option>
+                        <option value="3D">3D</option>
+                    </select>
+                </div>
 
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">Agregar Sala</button>
-            </div>
-        </form>
+                <!-- Capacidad de asientos -->
+                <div class="col-8">
+                    <label for="capacidad_asientos">Capacidad de Asientos:</label>
+                    <input type="number" class="form-control" id="capacidad_asientos" name="capacidad_asientos" required>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary Botones">Agregar Sala</button>
+                </div>
+            </form>
+        </div>
     </div>
     <!-- Fin contenido de la página -->
    

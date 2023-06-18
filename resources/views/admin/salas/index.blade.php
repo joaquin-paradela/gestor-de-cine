@@ -33,33 +33,39 @@
     <!-- Fin menú navegación -->
 
     <!-- Contenido de la página -->
-    <div class="container">
-        <h1>Salas</h1>
-        <div class="options">
-            <a href="{{ route('admin.salas.create') }}" class="btn btn-primary">Agregar Sala</a>
+
+    <div class="row">
+        <h1 class="titulos text-center">Salas</h1>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="options col-12 text-center mt-2">
+            <a href="{{ route('admin.salas.create') }}" class="btn btn-success Botones fs-3">Agregar Sala</a>
         </div>
-        <div class="container text-center"> 
-            <section class="row" id="salas">
-                <ul>
-                    @foreach ($salas as $sala)
-                        <li>
-                            <div class="card text-bg-dark text-center">
-                                <div class="card-body">
-                                    <h3>{{ $sala->nombre }}</h3>
-                                    <p>Tipo de Sala: {{ $sala->tipo_sala }}</p>
-                                    <p>Capacidad de Asientos: {{ $sala->capacidad_asientos }}</p>
-                                    <div class="options">
-                                        <a href="{{ route('admin.salas.edit', $sala->id) }}" class="btn btn-primary">Editar</a>
-                                        <form action="{{ route('admin.salas.destroy', $sala->id) }}" method="POST" style="display: inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button id="btnEliminar" type="submit" class="btn btn-danger">Eliminar</button>
-                                        </form>
+        <div class="container text-center MinimoAnchoAlto"> 
+            <section class="row justify-content-center" id="salas">
+                <ul class="row justify-content-around">
+                <div class="col-3">
+                        @foreach ($salas as $sala)
+                            <li>
+                                <div class="card  border border-primary rounded-2 text-bg-dark text-center">
+                                    <div class="card-body row text-center fs-4 justify-content-center">
+                                        <h3 class="text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 col-3">{{ $sala->nombre }}</h3>
+                                        <p>Tipo de Sala: {{ $sala->tipo_sala }}</p>
+                                        <p>Capacidad de Asientos: {{ $sala->capacidad_asientos }}</p>
+                                        <div class="options text-center mt-3 mb-2">
+                                            <a href="{{ route('admin.salas.edit', $sala->id) }}" class="btn btn-primary fs-5">Editar</a>
+                                            <form action="{{ route('admin.salas.destroy', $sala->id) }}"  method="POST" style="display: inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button id="btnEliminar" type="submit" class="btn btn-danger bg-danger fs-5">Eliminar</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                    @endforeach
+                            </li>
+                        @endforeach
+                    </div>
                 </ul>
             </section>
         </div>

@@ -28,16 +28,17 @@
         </div>
     @endif
     <!-- Contenido de la página -->
-    <div class="container">
-        <h1>Funciones</h1>
+    <div class="row">
+        <h1 class="titulos text-center">Funciones</h1>
+    </div>
 
+    <div class="container MinimoAnchoAlto">
         <!-- Botón para crear una nueva función -->
-        <div class="options">
-            <a href="{{ route('admin.funciones.create') }}" class="btn btn-primary">Crear Función</a>
-        </div>
-
+                <div class="options text-center">
+                        <a href="{{ route('admin.funciones.create') }}" class="btn btn-success Botones fs-4">Crear Función</a>
+                </div>  
         <!-- Listado de funciones -->
-        <table class="table">
+        <table class="table text-center border border-white Tablas">
             <thead>
                 <tr>
                     <th>Fecha</th>

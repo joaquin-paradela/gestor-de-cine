@@ -33,11 +33,20 @@
     <!-- Fin menú navegación -->
 
     <!-- Contenido de la página -->
-    <div class="container">
-        <h1>Películas</h1>
-        <div class="options">
-            <a href="{{route('admin.peliculas.create')}}" class="btn btn-primary">Agregar Película</a>
+
+    <div class="row text-center">
+        <h1 class="titulos">Películas</h1>
+    </div>
+
+    
+       
+        <div class="row justify-content-center">
+            <div class="col-6 text-center">
+                <a href="{{route('admin.peliculas.create')}}" class="btn btn-success Botones fs-3 mt-4">Agregar Película</a>
+            </div>
         </div>
+
+    <div class="container">
         <div class="container text-center"> 
             <section class="row" id="cartelera">
                 @foreach ($peliculas as $pelicula)
@@ -45,7 +54,7 @@
                     <div class="card text-bg-dark text-center">
                         <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" alt="{{ $pelicula->titulo }}" class="card-img-top">
                             
-                        <div class="card-body">
+                        <div class="card-body text-start">
                             <h3>{{ $pelicula->titulo }}</h3>
                             <p>Duración: {{ $pelicula->duracion }}</p>
                             <p>Género: {{ $pelicula->genero->nombre }}</p>
@@ -55,12 +64,12 @@
                                     <li>{{ $actor->nombre_actor }}</li>
                                 @endforeach
                             </ul> 
-                            <div class="options">
-                                <a href="{{ route('admin.peliculas.edit', $pelicula->id) }}" class="btn btn-primary">Editar</a>
+                            <div class="options text-center mt-3">
+                                <a href="{{ route('admin.peliculas.edit', $pelicula->id) }}" class="btn btn-primary fs-5">Editar</a>
                                 <form action="{{ route('admin.peliculas.destroy', $pelicula->id) }}" method="POST" style="display: inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button id="btnEliminar" type="submit" class="btn btn-danger">Eliminar</button>
+                                    <button id="btnEliminar" type="submit" class="btn btn-danger bg-danger fs-5">Eliminar</button>
                                 </form>
                             </div>
                         </div>

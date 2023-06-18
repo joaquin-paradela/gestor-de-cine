@@ -69,11 +69,11 @@
           </div>
         </div>
         <div class="col col-lg-6 align-items-center justify-content-start">
-          <iframe class="border-3 rounded-bottom-4" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.5591441865295!2d-58.60460592343556!3d-34.640579459447174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc951c0fe2d9f5%3A0x9f1c540898efecbe!2sUTN%20-%20Facultad%20Regional%20Haedo!5e0!3m2!1ses!2sar!4v1685314182348!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe class="border-3 rounded-bottom-4" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.5591441865295!2d-58.60460592343556!3d-34.640579459447174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc951c0fe2d9f5%3A0x9f1c540898efecbe!2sUTN%20-%20Facultad%20Regional%20Haedo!5e0!3m2!1ses!2sar!4v1685314182348!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 
-
+    
 
       <!-- inicio Footer -->
       @include('layouts.footer')

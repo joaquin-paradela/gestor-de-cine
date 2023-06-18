@@ -27,25 +27,29 @@
         </div>
     @endif
     <!-- Fin menú navegación -->
+
     <!-- Contenido de la página -->
-    <div class="container">
-        <h1>Editar Género</h1>
+    <div class="row">
+        <h1 class="titulos text-center">Editar Género</h1>
+    </div>
+    <div class="container MinimoAnchoAlto">
+        <div class="row justify-content-center">
+            <!-- Formulario para editar el género -->
+            <form action="{{ route('admin.generos.update', $genero->id) }}" class="row justify-content-center border border-primary rounded-2" id="FormularioEditGenero" method="POST">
+                @csrf
+                @method('PUT')
 
-        <!-- Formulario para editar el género -->
-        <form action="{{ route('admin.generos.update', $genero->id) }}" method="POST">
-            @csrf
-            @method('PUT')
+                <!-- Nombre del género -->
+                <div class="col-10">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{ $genero->nombre }}" required>
+                </div>
 
-            <!-- Nombre del género -->
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ $genero->nombre }}" required>
-            </div>
-
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">Actualizar Género</button>
-            </div>
-        </form>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary Botones">Actualizar Género</button>
+                </div>
+            </form>
+        </div>
     </div>
     <!-- Fin contenido de la página -->
    

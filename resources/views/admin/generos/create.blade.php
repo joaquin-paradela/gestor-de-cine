@@ -27,24 +27,30 @@
             </div>
         @endif
     <!-- Fin menú navegación -->
+
+    
     <!-- Contenido de la página -->
-    <div class="container">
-        <h1>Crear Género</h1>
+    <div class="row">
+        <h1 class="titulos text-center">Crear Género</h1>
+    </div>
 
-        <!-- Formulario para crear un género -->
-        <form action="{{ route('admin.generos.store') }}" method="POST">
-            @csrf
+    <div class="container MinimoAnchoAlto">
+        <div class="row justify-content-center">
+            <!-- Formulario para crear un género -->
+            <form action="{{ route('admin.generos.store') }}" class="row justify-content-center border border-primary rounded-2" id="FormularioEditGenero" method="POST">
+                @csrf
 
-            <!-- Nombre del género -->
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" required>
-            </div>
+                <!-- Nombre del género -->
+                <div class="col-10">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
 
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">Crear Género</button>
-            </div>
-        </form>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary Botones">Crear Género</button>
+                </div>
+            </form>
+        </div>
     </div>
     <!-- Fin contenido de la página -->
    

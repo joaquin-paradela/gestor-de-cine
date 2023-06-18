@@ -77,7 +77,7 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('profile.edit') }}">
-                            {{ __('Profile') }}
+                            {{ __('Mi perfil') }}
                         </a>
 
                         <!-- Authentication -->
@@ -86,7 +86,7 @@
 
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Salir') }}
                             </a>
                         </form>
                     </div>

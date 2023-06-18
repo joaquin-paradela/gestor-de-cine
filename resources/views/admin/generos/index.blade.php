@@ -33,31 +33,37 @@
     <!-- Fin menú navegación -->
 
     <!-- Contenido de la página -->
+
+    <div class="row">
+        <h1 class="titulos text-center">Géneros</h1>
+    </div>
     <div class="container">
-        <h1>Géneros</h1>
-        <div class="options">
-            <a href="{{ route('admin.generos.create') }}" class="btn btn-primary">Agregar Género</a>
+        <div class="options text-center">
+            <a href="{{ route('admin.generos.create') }}" class="btn btn-success fs-4 Botones">Agregar Género</a>
         </div>
-        <div class="container text-center"> 
-            <section class="row" id="generos">
-                <ul>
-                    @foreach ($generos as $genero)
-                        <li>
-                            <div class="card text-bg-dark text-center">
-                                <div class="card-body">
-                                    <h3>{{ $genero->nombre }}</h3>
-                                    <div class="options">
-                                        <a href="{{ route('admin.generos.edit', $genero->id) }}" class="btn btn-primary">Editar</a>
-                                        <form action="{{ route('admin.generos.destroy', $genero->id) }}" method="POST" style="display: inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button id="btnEliminar" type="submit" class="btn btn-danger">Eliminar</button>
-                                        </form>
+
+        <div class="container text-center MinimoAnchoAlto"> 
+            <section class="row justify-content-center" id="generos">
+                <ul class="row justify-content-center">
+                    <div class="col-4">
+                        @foreach ($generos as $genero)
+                            <li>
+                                <div class="card  border border-primary rounded-2 text-bg-dark text-center">
+                                    <div class="card-body row text-center fs-4 justify-content-center">
+                                        <h3 class="text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3 fs-3 col-8">{{ $genero->nombre }}</h3>
+                                        <div class="options mt-3">
+                                            <a href="{{ route('admin.generos.edit', $genero->id) }}" class="btn btn-primary fs-5">Editar</a>
+                                            <form action="{{ route('admin.generos.destroy', $genero->id) }}" method="POST" style="display: inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button id="btnEliminar" type="submit" class="btn btn-danger bg-danger fs-5">Eliminar</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                    @endforeach
+                            </li>
+                        @endforeach
+                    </div>
                 </ul>
             </section>
         </div>

@@ -23,12 +23,15 @@
     <!-- Fin menú navegación -->
 
     <!-- Contenido de la página -->
-    <div class="container">
-        <h1>Historial de Compras</h1>
+    <div class="row">
+        <h1 class="titulos text-center">Historial de Compras</h1>
+    </div>
 
-        <p>Mis puntos totales: {{ $puntostotales }}</p>
-
-        <table class="table">
+    <div class="container" id="HistorialCompra">
+        <div class="row justify-content-center">
+            <p class="text-center btn btn-primary">Mis puntos totales: {{ $puntostotales }}</p>
+        </div>
+        <table class="table text-center border border-white Tablas">
             <thead>
                 <tr>
                     <th>Fecha de compra</th>
