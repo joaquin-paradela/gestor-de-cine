@@ -38,11 +38,18 @@ class FuncionController extends Controller
     }
     public function index()
     {
-        $peliculas = Pelicula::has('funciones')->get()->unique();
-        // Obtener todas las funciones, incluidas las eliminadas lógicamente
-        $funciones = Funcion::withTrashed()->orderByDesc('id')->get();
-        return view('admin.funciones.index', compact('funciones', 'peliculas'));
+    
+
+        // Obtener todas las funciones habilitadas
+        $funcionesHabilitadas = Funcion::orderByDesc('id')->get();
+
+        // Obtener todas las funciones deshabilitadas
+        $funcionesDeshabilitadas = Funcion::onlyTrashed()->orderByDesc('id')->get();
+
+        return view('admin.funciones.index', compact('funcionesHabilitadas', 'funcionesDeshabilitadas'));
     }
+
+
     public function carrusel()
     {
         $peliculas = Pelicula::has('funciones')->get()->unique();
@@ -73,7 +80,7 @@ class FuncionController extends Controller
 
     public function update(Request $request, $id)
     {
-        $funcion = Funcion::find($id);
+        $funcion = Funcion::withTrashed()->find($id);
 
         if (!$funcion) {
             // Si no se encuentra la función, puedes redirigir o mostrar un mensaje de error
@@ -140,6 +147,23 @@ class FuncionController extends Controller
             // Manejo de errores
             Session::flash('error', 'Error al crear la función: ' . $e->getMessage());
             // Redireccionar a una vista de error a la página anterior
+            return redirect()->back();
+        }
+    }
+
+    public function restore($id)
+    {
+        try {
+            // Buscar la función deshabilitada por su ID
+            $funcion = Funcion::withTrashed()->findOrFail($id);
+
+            // Restaurar la función
+            $funcion->restore();
+
+            Session::flash('success', 'Función habilitada en cartelera correctamente');
+            return redirect()->route('admin.funciones.index');
+        } catch (\Exception $e) {
+            Session::flash('error', 'Error al habilitar la función: ' . $e->getMessage());
             return redirect()->back();
         }
     }

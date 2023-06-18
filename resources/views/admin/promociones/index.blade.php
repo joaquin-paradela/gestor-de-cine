@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col col-lg-6">
                     <h4 class="text-start">Nueva promoción</h4>
-                    <p>Por cada <strong>20</strong> puntos acumulados, puedes disfrutar de una promoción de 1 entrada cada 20 puntos en películas 2D y 3D.</p>
+                    <p>Por cada <strong>20</strong> puntos acumulados podes comprar 1 entrada en salas 2D y 3D.</p>
                 </div>
                 <div class="col col-lg-6">
                     <img src="{{ asset('Imagenes/pelicula_2d.jpg') }}" alt="Películas 2D" class="col col-lg-4">
