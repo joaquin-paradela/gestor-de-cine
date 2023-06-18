@@ -85,6 +85,8 @@ Route::get('/contacto', function () {
         Route::get('/funciones/{id}/edit', [FuncionController::class, 'edit'])->name('admin.funciones.edit');
         Route::put('/funciones/{id}', [FuncionController::class, 'update'])->name('admin.funciones.update'); 
         Route::delete('/funciones/{id}', [FuncionController::class, 'destroy'])->name('admin.funciones.destroy');
+        Route::put('/admin/funciones/{id}/restore', [FuncionController::class, 'restore'])->name('admin.funciones.restore');
+
     });
 
 require __DIR__.'/auth.php';
