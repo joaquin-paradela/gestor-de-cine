@@ -38,6 +38,7 @@
                         <a href="{{ route('admin.funciones.create') }}" class="btn btn-success Botones fs-4">Crear Función</a>
                 </div>  
         <!-- Listado de funciones -->
+        <h2>Funciones habilitadas</h2>
         <table class="table text-center border border-white Tablas">
             <thead>
                 <tr>
@@ -77,7 +78,7 @@
 
         <!-- Listado de funciones deshabilitadas -->
         <h2>Funciones deshabilitadas</h2>
-        <table class="table">
+        <table class="table text-center border border-white Tablas">
             <thead>
                 <tr>
                     <th>Fecha</th>
