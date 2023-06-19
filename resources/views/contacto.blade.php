@@ -17,7 +17,20 @@
       <!-- Menu de navegación -->
        @include('layouts.menunavigation')
       <!-- Fin menú navegación -->
-
+      @if(Session::has('mensaje_enviado'))
+      <!-- <div class="alert alert-success" role="alert">
+        {{ Session::get('mensaje_enviado') }}
+      </div> -->
+      <div class="alert alert-success border border-3 border-success rounded-2 bg-subtle text-center fs-4 alert-dismissible fade show ms-1 me-1 mt-1" role="alert">
+        <strong>{{ Session::get('mensaje_enviado') }}</strong>
+        <button  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <!-- <div class="row text-center">
+            <div class="alert alert-success fs-3 fw-semibold">
+                {{ Session::get('mensaje_enviado') }}
+            </div>
+      </div> -->
+      @endif
       <div class="row align-items-end justify-content-end" id="FondoContacto">
         <div class="col">
           <h2 class="efectoTexto">Contáctenos</h2>
@@ -32,26 +45,29 @@
       </div>
 
       
-
+      
     <div class="row justify-content-center align-items-center" >  
+       
         <!-- Formulario Contacto -->
-        <div class="container border-2 border-start border-end" id="FormularioContacto">
+        <form  method="POST" action="{{route('consulta_enviada')}}" class="container border-2 border-start border-end" id="FormularioContacto">
+          @csrf
           <div class="row mb-3 text-center justify-content-center ">
             <label for="exampleFormControlInput1" class="form-label border border-3 rounded-bottom">Email</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre@email.com">
+            <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre@email.com">
           </div>
           <div class="row mb-3 text-center justify-content-center">
             <label for="exampleFormControlTextarea1" class="form-label border border-3 rounded-bottom">Asunto</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" placeholder="Escribe el asunto aquí"></textarea>
+            <textarea class="form-control" name="asunto" id="exampleFormControlTextarea1" rows="1" placeholder="Escribe el asunto aquí"></textarea>
           </div>
           <div class="row mb-3 text-center justify-content-center">
             <label for="exampleFormControlTextarea1" class="form-label border border-3 rounded-bottom">Consulta</label>
-            <textarea class="form-control" id="consulta" rows="3" placeholder="Escribe tu consulta aquí"></textarea>
+            <textarea class="form-control" name="consulta" id="consulta" rows="3" placeholder="Escribe tu consulta aquí"></textarea>
           </div>
           <div class="row mb-3 text-center justify-content-center">
-            <input type="submit" class="btn btn-success bg-success" id="exampleFormControlInput1" placeholder="nombre@email.com">
+            <input type="submit" class="btn btn-success bg-success" id="exampleFormControlInput1">
           </div>
       </div>
+
     </div>
       <!-- Fin Formulario Contacto -->
 

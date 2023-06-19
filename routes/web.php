@@ -8,7 +8,9 @@ use App\Http\Controllers\FuncionController;
 use App\Http\Controllers\EntradaController;
 use App\Http\Controllers\GeneroController;
 use App\Http\Controllers\SalaController;
+use App\Http\Controllers\ContactoController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 
 //rutas para clientes logueados y no logueados 
 Route::get('/', [FuncionController::class, 'carrusel'])->name('carrusel');
@@ -23,9 +25,16 @@ Route::get('/promociones', function () {
     return view('admin.promociones.index');
 });
 
-Route::get('/contacto', function () {
+/* Route::get('/contacto', function () {
     return view('contacto');
-});
+}); */
+
+Route::get('/contacto',[ContactoController::class,'contacto']);
+
+Route::post('/Enviar_consulta',[ContactoController::class,'enviarMail'])->name('consulta_enviada');
+
+
+
 
     //Ruta de busqueda para la funcion
     Route::get('/buscar', [FuncionController::class, 'buscar'])->name('buscar');

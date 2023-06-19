@@ -682,3 +682,19 @@ form.FormIngreso div label span{
 
 
 /* Fin Pagina CHECKOUT */
+/* Pagina Compra Realizada*/
+
+#containerCompraRealizada{
+    background-image: url("../Imagenes/Royal.jpg");
+    background-size: cover;
+    width: 70%;
+
+}
+
+#containerCompraRealizada strong{
+padding-left: 0.2rem;
+padding-right: 0.2rem;
+background-image: url("../Imagenes/Royal.jpg");
+background-size: cover;
+}
+/* Fin Pagina Compra Realizada*/
