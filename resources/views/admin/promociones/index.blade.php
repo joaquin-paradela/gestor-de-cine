@@ -36,7 +36,7 @@
                     <p>Por cada compra de entrada, obtendrás <strong>5</strong> puntos para ir acumulando hasta llegar para comprar entradas solo con puntos !</p>
                 </div>
                 <div class="col col-lg-6">
-                    <img src="{{ asset('Imagenes/pelicula_2d.jpg') }}" alt="Películas 2D" class="col col-lg-4">
+                    <img src="{{ asset('Imagenes/boletoapuntos.jpg') }}" alt="Películas 2D" class="col col-lg-4">
                 </div>
             </div>
         </div>
@@ -50,13 +50,13 @@
                     <p>Por cada <strong>20</strong> puntos acumulados podes comprar 1 entrada en salas 2D y 3D.</p>
                 </div>
                 <div class="col col-lg-6">
-                    <img src="{{ asset('Imagenes/pelicula_2d.jpg') }}" alt="Películas 2D" class="col col-lg-4">
+                    <img src="{{ asset('Imagenes/puntosaboleto.jpg') }}" alt="Películas 2D" class="col col-lg-4">
                 </div>
             </div>
         </div>
     </div>
 
-   
+
 
     <!-- Inicio Footer -->
     @include('layouts.footer')
