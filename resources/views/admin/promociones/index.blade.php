@@ -36,7 +36,7 @@
                     <p class="mt-2">Por cada compra de entrada, obtenés <strong>5</strong> puntos para acumular y canjear.</p>
                 </div>
                 <div class="col col-lg-6">
-                    <img src="{{ asset('Imagenes/cine promociones.jpg') }}" alt="Películas 2D" class="col col-lg-4 border border-white rounded-2">
+                    <img src="{{ asset('Imagenes/boletoapuntos.jpg') }}" alt="Películas 2D" class="col col-lg-4">
                 </div>
             </div>
         </div>
@@ -50,13 +50,13 @@
                     <p class="mt-2">Por cada <strong>20</strong> puntos acumulados es posible cambiarlos por 1 entrada para salas 2D y 3D.</p>
                 </div>
                 <div class="col col-lg-6">
-                    <img  src="{{ asset('Imagenes/entradas-cine.jpg') }}" alt="Películas 2D" class="col col-lg-4 border border-white rounded-2">
+                    <img src="{{ asset('Imagenes/puntosaboleto.jpg') }}" alt="Películas 2D" class="col col-lg-4">
                 </div>
             </div>
         </div>
     </div>
 
-   
+
 
     <!-- Inicio Footer -->
     @include('layouts.footer')
