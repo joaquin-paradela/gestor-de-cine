@@ -103,6 +103,7 @@ class Pelicula extends Model
     */
     public function editarPelicula($datos)
     {
+        
         $this->update($datos);
     }
 

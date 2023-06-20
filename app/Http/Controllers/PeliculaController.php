@@ -75,18 +75,28 @@ class PeliculaController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validar y obtener los datos del formulario
-        $datos = $request->validate([
-            'titulo' => 'required',
-            'duracion' => 'required',
-            'genero_id' => 'required',
-        ]);
-
-        // Obtener la película a editar por su ID
+       // Obtener la película a actualizar
         $pelicula = Pelicula::findOrFail($id);
 
-        // Llamar a la función editarPelicula() del modelo Pelicula
-        $pelicula->editarPelicula($datos);
+        // Procesar la imagen si se ha enviado una nueva
+        if ($request->hasFile('imagen')) {
+            // Obtener el archivo de imagen del formulario
+            $imagen = $request->file('imagen');
+
+            $rutaImagen = $pelicula->guardarImagen($imagen);
+            $nombreImagen = basename($rutaImagen); // Obtener solo el nombre del archivo
+            $pelicula->imagen = $nombreImagen;
+            $pelicula->save();
+        }
+
+        // Actualizar los demás campos de la película
+        $pelicula->titulo = $request->input('titulo');
+        $pelicula->duracion = $request->input('duracion');
+        $pelicula->descripcion = $request->input('descripcion');
+        $pelicula->genero_id = $request->input('genero_id');
+
+        // Guardar los cambios en la base de datos
+        $pelicula->save();
 
         // Redireccionar o realizar alguna acción adicional
         // ...

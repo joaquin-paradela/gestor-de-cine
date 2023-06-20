@@ -32,9 +32,6 @@
                 <a  href="{{ url('/contacto') }}">Contacto</a>
               </li>
               <li>
-                <a href="{{ url('/bienvenida') }}">Home</a>
-              </li>
-              <li>
                 <a href="{{ url('/ayuda') }}">Ayuda</a>
               </li>
               <li>

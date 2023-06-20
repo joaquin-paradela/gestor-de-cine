@@ -55,11 +55,7 @@
                                         <p>Capacidad de Asientos: {{ $sala->capacidad_asientos }}</p>
                                         <div class="options text-center mt-3 mb-2">
                                             <a href="{{ route('admin.salas.edit', $sala->id) }}" class="btn btn-primary fs-5">Editar</a>
-                                            <form action="{{ route('admin.salas.destroy', $sala->id) }}"  method="POST" style="display: inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button id="btnEliminar" type="submit" class="btn btn-danger bg-danger fs-5">Eliminar</button>
-                                            </form>
+                                       
                                         </div>
                                     </div>
                                 </div>
