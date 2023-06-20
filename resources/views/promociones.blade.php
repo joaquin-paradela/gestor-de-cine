@@ -29,8 +29,9 @@
     
       <div class="row text-center" id="FilaPromociones">
         <h2>
-        Promociones y Descuentos    
+        Canjea tus puntos!   
        </h2>
+
       </div>
       <div class="row Separador"></div>
       <!-- Promociones -->

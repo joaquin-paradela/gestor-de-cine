@@ -7,8 +7,8 @@
 </head>
 <body>
     <h1>Consulta</h1>
-    <p> Email : {{$detalle['email']}}</p>
-    <p> Asunto : {{$detalle['asunto']}}</p>
+    <h2> Email : {{$detalle['email']}}</p>
+    <h3> Asunto : {{$detalle['asunto']}}</p>
     <p> Consulta : {{$detalle['consulta']}}</p>
 </body>
 </html>
