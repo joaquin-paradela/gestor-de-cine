@@ -1,19 +1,5 @@
 <footer class="row align-items-center">
             <div class="col-lg-4">
-                <ul class="nav justify-content-center">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><img src="{{ asset('Imagenes/ICONOS/facebook.png') }}" alt="facebook" id="facebook"></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><img src="{{ asset('Imagenes/ICONOS/instagram.png') }}" alt="instagram" id="instagram"></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><img src="{{ asset('Imagenes/ICONOS/twitter.png') }}" alt="twitter" id="twitter"></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><img src="{{ asset('Imagenes/ICONOS/linkedin.png') }}" alt="linkedin"></a>
-                  </li>
-                </ul>
             </div>
 
             <div class="col-lg-4 text-center justify-content-center">

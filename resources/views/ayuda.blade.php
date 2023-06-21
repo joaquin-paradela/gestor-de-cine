@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Sistema de Gestion de Cine </title>
-       
+
          <!-- Bootstrap -->
          <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
         <!--css Personalizado-->
@@ -19,8 +19,8 @@
         <header>
         <div>
           @include('layouts.menunavigation')
-              
-          </div>   
+
+          </div>
         </header>
       <!-- Fin menú navegación -->
 
@@ -38,8 +38,8 @@
           </h2>
           <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
             <div class="accordion-body">
-              <h3> Titulo de la Pregunta </h3>
-              <p>Cuerpo de la pregunta</p>
+              <h3>La película que quiero ver no aparece en cartelera, ¿Por qué?</h3>
+              <p><br>Independientemente de si la película ya fue estrenada o no, puede pedirnos mediante nuestra sección de contacto si desea que agreguemos la película a nuestra cartelera. </p>
             </div>
           </div>
         </div>
@@ -52,8 +52,8 @@
           </h2>
           <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
             <div class="accordion-body">
-              <h3> Titulo de la Pregunta </h3>
-              <p>Cuerpo de la pregunta</p>
+              <h3>¿Como hacen para identificar que compre un boleto para la película en el sitio web, al momento de verla? </h3>
+              <p><br>Para ver la película, necesitas mostrar el comprobante de la compra mediante una captura de pantalla o llevarlo impreso a la persona encargada de verificarlas.</p>
             </div>
           </div>
         </div>
@@ -66,8 +66,8 @@
           </h2>
           <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
             <div class="accordion-body">
-              <h3> Titulo de la Pregunta </h3>
-              <p>Cuerpo de la pregunta</p>
+              <h3>¿Qué asiento tengo, después de haber comprado un boleto para la película que quería ver?</h3>
+              <p><br>Nuestro sistema no tiene asignación de asientos, por lo que en el momento en el que entre a la sala para ver su película, usted puede sentarse en cualquier asiento disponible.</p>
             </div>
           </div>
         </div>
@@ -80,8 +80,8 @@
           </h2>
           <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
             <div class="accordion-body">
-              <h3> Titulo de la Pregunta </h3>
-              <p>Cuerpo de la pregunta</p>
+              <h3>¿Dónde puedo comprar golosinas o gaseosas? </h3>
+              <p><br>La compra de comestibles no se realiza en la página, debe hacerse de forma presencial en nuestro cine antes de ver la película. </p>
             </div>
           </div>
         </div>
@@ -106,7 +106,7 @@
       <!-- inicio Footer -->
           @include('layouts.footer')
       <!-- Fin footer -->
-        
+
         <script src="js/bootstrap.bundle.js"></script>
     </body>
 </html>
