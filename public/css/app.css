@@ -43,8 +43,8 @@ body{
 } 
 
 .carousel-image{
-    width: 1100px; /* Establece el ancho deseado para las imágenes */
-    height: 1200px; /* Ajusta la altura automáticamente */        
+    width: 950px; /* Establece el ancho deseado para las imágenes */
+    height: 1050px; /* Ajusta la altura automáticamente */        
 }
 
 .carousel-inner{
@@ -617,6 +617,38 @@ form.FormIngreso div label span{
 .Formularios div select{
     font-size: 1.1rem; 
 }
+
+.Formularios2{
+    width: 55%;
+    min-height: 110px;
+    background-image: url("../Imagenes/Lizard.jpg");
+    background-size: auto;
+    color: whitesmoke;
+    margin-top: 3rem;
+}
+
+.Formularios2 div label{
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    font-weight: bolder;
+}
+
+.Formularios2 label{
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    font-weight: bolder;
+}
+
+.Formularios2 div input{
+    font-size: 1.1rem;  
+}
+
+.Formularios2 div select{
+    font-size: 1.1rem; 
+}
+
 
 .Botones{
     font-size: 1.27rem;

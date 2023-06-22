@@ -21,7 +21,7 @@ class ContactoController extends Controller
             'consulta'=> $request->consulta
         ];
 
-        Mail::to('joaquin.paradela28@gmail.com')->send(new MailContacto($detalles));
+        Mail::to('matias.pastor2002@gmail.com')->send(new MailContacto($detalles));
 
         return back()->with('mensaje_enviado','Su consulta se envió correctamente');
 
