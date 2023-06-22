@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Genero;
 use App\Models\Pelicula;
 use App\Models\Entrada;
+use App\Models\ActorPrincipal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -94,12 +95,23 @@ class PeliculaController extends Controller
         $pelicula->duracion = $request->input('duracion');
         $pelicula->descripcion = $request->input('descripcion');
         $pelicula->genero_id = $request->input('genero_id');
+        
+
+        $actoresPrincipales = $request->input('nuevosActoresPrincipales');
+
+        $actoresPrincipales = array_map('trim', explode(',', $actoresPrincipales));
+
+        // Agregar los nuevos actores principales a la película en la tabla intermedia "actuaciones"
+        $actoresIds = [];
+        foreach ($actoresPrincipales as $nombre) {
+            $actorPrincipal = ActorPrincipal::firstOrCreate(['nombre_actor' => $nombre]);
+            $actoresIds[] = $actorPrincipal->id;
+        }
+
+        $pelicula->actoresPrincipales()->syncWithoutDetaching($actoresIds);
 
         // Guardar los cambios en la base de datos
         $pelicula->save();
-
-        // Redireccionar o realizar alguna acción adicional
-        // ...
 
         return redirect()->route('admin.peliculas.index')->with('success', 'Película actualizada exitosamente');
     }
