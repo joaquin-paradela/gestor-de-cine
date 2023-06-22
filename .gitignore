@@ -17,4 +17,7 @@ yarn-error.log
 /.idea
 /.vscode
 /public/Imagenes
+<<<<<<< Updated upstream
 .env
+=======
+>>>>>>> Stashed changes

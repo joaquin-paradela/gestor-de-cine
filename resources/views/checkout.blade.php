@@ -48,52 +48,56 @@
     </div>
 
         <!-- Formulario de selección de forma de pago -->
-        <form id="formaPagoForm">
-            <div class="form-group">
-                <label for="formaPago">Forma de Pago</label>
-                <select class="form-control" id="formaPago" name="formaPago" required>
-                    <option value="abonar">Abonar</option>
-                    <option value="puntos">Utilizar puntos</option>
-                </select>
-            </div>
-        </form>
+    <div class="row justify-content-center">
+        
+            <form class="Formularios2 justify-content-center border border-primary rounded-2" id="formaPagoForm">
+                <div class="form-group">
+                    <label for="formaPago">Forma de Pago</label>
+                    <select class="form-control mb-4" id="formaPago" name="formaPago" required>
+                        <option  value="abonar">Abonar</option>
+                        <option value="puntos">Utilizar puntos</option>
+                    </select>
+                </div>
+            </form>
+        
+
 
         <!-- Otros elementos de la vista checkout -->
 
         <!-- Formulario de compra con abono -->
-    <form action="{{ route('store') }}" method="POST" id="abonarForm">
-        @csrf
-        <input type="hidden" id="fechaSeleccionada" name="fechaSeleccionada" value="{{ $fechaSeleccionada }}">
-        <input type="hidden" id="horaSeleccionada" name="horaSeleccionada" value="{{ $horaSeleccionada }}">
-        <input type="hidden" id="cantidadEntradas" name="cantidadEntradas" value="{{ $cantidadEntradas }}">
-        <input type="hidden" id="precioTotal" name="precioTotal" value="{{ $precioTotal }}">
-        <input type="hidden" id="funcionSeleccionada" name="funcionSeleccionada" value="{{ $funcionSeleccionada->id }}">
-        <input type="hidden" id="precioUnitario" name="precioUnitario" value="{{ $precioEntrada }}">
-        <input type="hidden" name="formaPago" value="abonar">
+        <form class="Formularios2 justify-content-center border border-primary rounded-2 mb-4" action="{{ route('store') }}" method="POST" id="abonarForm">
+            @csrf
+            <input type="hidden" id="fechaSeleccionada" name="fechaSeleccionada" value="{{ $fechaSeleccionada }}">
+            <input type="hidden" id="horaSeleccionada" name="horaSeleccionada" value="{{ $horaSeleccionada }}">
+            <input type="hidden" id="cantidadEntradas" name="cantidadEntradas" value="{{ $cantidadEntradas }}">
+            <input type="hidden" id="precioTotal" name="precioTotal" value="{{ $precioTotal }}">
+            <input type="hidden" id="funcionSeleccionada" name="funcionSeleccionada" value="{{ $funcionSeleccionada->id }}">
+            <input type="hidden" id="precioUnitario" name="precioUnitario" value="{{ $precioEntrada }}">
+            <input type="hidden" name="formaPago" value="abonar">
 
-        <label for="pago" class="form-label">Abonar</label>
-        <input type="text" class="form-control" id="pago" name="pago" placeholder="Ingrese el pago">
+            <label for="pago" class="form-label">Abonar</label>
+            <input type="text" class="form-control" id="pago" name="pago" placeholder="Ingrese el pago">
 
-        <div class="text-center">
-            <button type="submit" id="btnCompra" class="btn btn-primary">Realizar compra</button>
-        </div>
-    </form>
+            <div class="text-center">
+                <button type="submit" id="btnCompra" class="btn btn-primary bg-primary mt-3 mb-3 fs-5">Realizar compra</button>
+            </div>
+        </form>
 
     <!-- Formulario de compra con puntos -->
-    <form action="{{ route('store') }}" method="POST" id="puntosForm" style="display: none;">
-        @csrf
-        <input type="hidden" id="fechaSeleccionada" name="fechaSeleccionada" value="{{ $fechaSeleccionada }}">
-        <input type="hidden" id="horaSeleccionada" name="horaSeleccionada" value="{{ $horaSeleccionada }}">
-        <input type="hidden" id="cantidadEntradas" name="cantidadEntradas" value="{{ $cantidadEntradas }}">
-        <input type="hidden" id="precioTotal" name="precioTotal" value="{{ $precioTotal }}">
-        <input type="hidden" id="funcionSeleccionada" name="funcionSeleccionada" value="{{ $funcionSeleccionada->id }}">
-        <input type="hidden" id="precioUnitario" name="precioUnitario" value="{{ $precioEntrada }}">
-        <input type="hidden" name="formaPago" value="puntos">
+        <form class="row justify-content-center" action="{{ route('store') }}" method="POST" id="puntosForm" style="display: none;">
+            @csrf
+            <input type="hidden" id="fechaSeleccionada" name="fechaSeleccionada" value="{{ $fechaSeleccionada }}">
+            <input type="hidden" id="horaSeleccionada" name="horaSeleccionada" value="{{ $horaSeleccionada }}">
+            <input type="hidden" id="cantidadEntradas" name="cantidadEntradas" value="{{ $cantidadEntradas }}">
+            <input type="hidden" id="precioTotal" name="precioTotal" value="{{ $precioTotal }}">
+            <input type="hidden" id="funcionSeleccionada" name="funcionSeleccionada" value="{{ $funcionSeleccionada->id }}">
+            <input type="hidden" id="precioUnitario" name="precioUnitario" value="{{ $precioEntrada }}">
+            <input type="hidden" name="formaPago" value="puntos">
 
-        <div class="text-center">
-            <button type="submit" id="btnCompraPuntos" class="btn btn-primary">Realizar compra con puntos</button>
-        </div>
-    </form>
+            <div class="text-center">
+                <button type="submit" id="btnCompraPuntos" class="btn btn-primary bg-primary mt-4 mb-5 fs-5">Realizar compra con puntos</button>
+            </div>
+        </form>
     </div>
     <!-- Fin contenido de la página -->
 
