@@ -80,7 +80,7 @@ class GeneroController extends Controller
             return redirect()->route('admin.generos.index');
         
         } catch (\Exception $e) {
-
+            Session::flash('error', 'No se puede eliminar el genero ya que está relacionado con una o más peliculas: ' );
             return redirect()->back();
         }
         
