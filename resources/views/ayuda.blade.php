@@ -54,7 +54,7 @@
           </h2>
           <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
             <div class="accordion-body">
-              <h3 class="fst-italic">Para ver las funciones disponibles de una película, se debe estar logueado dentro del sistema. Una vez dentro, debemos clickear la opción "Comprar Entrada" de la película que hemos elegido; allí se nos mostrará un formulario con información de la misma: fechas de las funciones, horarios, salas, formatos(2D o 3D) y el precio de la entrada </h3>
+              <h3 class="fst-italic">Para ver las funciones disponibles de una película, se debe estar logueado dentro del sistema. Una vez dentro, debemos clickear la opción "Comprar Entrada" de la película que hemos elegido; allí se nos mostrará un formulario con información de la misma: fechas de las funciones, horarios, salas, formatos(2D o 3D) y el precio de la entrada. </h3>
               
             </div>
           </div>
@@ -96,7 +96,7 @@
           </h2>
           <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
             <div class="accordion-body">
-              <h3>En caso de necesitar más ayuda, puedes descargar el manual de usuario <strong class="text-decoration-underline">aquí debajo</strong>, o dirigirte al apartado "Contacto" del menú de navegación y rellenar el formulario. Te responderemos a la brevedad</h3>
+              <h3>En caso de necesitar más ayuda, puedes descargar el manual de usuario <strong class="text-decoration-underline">aquí debajo</strong>, o dirigirte al apartado "Contacto" del menú de navegación y rellenar el formulario. Te responderemos a la brevedad.</h3>
             </div>
           </div>
         </div>
