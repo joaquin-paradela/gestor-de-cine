@@ -96,7 +96,7 @@
           </h2>
           <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
             <div class="accordion-body">
-              <h3>En caso de necesitar más ayuda, puedes descargar el manual de usuario <strong class="text-decoration-underline">aquí debajo</strong>, o dirigirte al apartado "Contacto" del menú de navegación y rellenar el formulario. Te responderemos a la brevedad.</h3>
+              <h3 class="fst-italic">En caso de necesitar más ayuda, puedes descargar el manual de usuario <strong class="text-decoration-underline">aquí debajo</strong>, o dirigirte al apartado "Contacto" del menú de navegación y rellenar el formulario. Te responderemos a la brevedad.</h3>
             </div>
           </div>
         </div>
