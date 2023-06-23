@@ -120,25 +120,22 @@ class PeliculaController extends Controller
     {
         try {
             $pelicula = Pelicula::findOrFail($id);
-
-            $entradas = Entrada::all();
-
-            // Buscar si la película está siendo referenciada por alguna entrada
-            $referencedEntrada = $entradas->first(function ($entrada) use ($pelicula) {
-                return $entrada->funcion->pelicula->id === $pelicula->id;
-            });
-
-            if ($referencedEntrada) {
+    
+            $entrada = Entrada::whereHas('funcion.pelicula', function ($query) use ($pelicula) {
+                $query->where('id', $pelicula->id);
+            })->first();
+    
+            if ($entrada) {
                 Session::flash('error', 'No se puede eliminar la película, ya que está siendo referenciada por una entrada');
                 return redirect()->back();
             }
-
+    
             $pelicula->delete();
-
+    
             Session::flash('success', 'Pelicula eliminada correctamente');
             return redirect()->route('admin.peliculas.index');
         } catch (\Exception $e) {
-            Session::flash('error', 'Error al eliminar la pelicula: ' . $e->getMessage());
+            Session::flash('error', 'Error al eliminar la película: ' . $e->getMessage());
             return redirect()->back();
         }
     }
