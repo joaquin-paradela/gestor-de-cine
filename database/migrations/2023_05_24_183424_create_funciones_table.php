@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('pelicula_id');
             $table->date('fecha')->nullable(false);
             $table->time('hora_inicio')->nullable(false);
+            $table->integer('asientos_disponibles')->nullable(false);
             $table->float('precio_entrada')->nullable(false);
             $table->softDeletes();
            

@@ -19,7 +19,7 @@ class Funcion extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
 
-    protected $fillable = ['fecha','hora_inicio', 'precio_entrada', 'sala_id', 'pelicula_id'];
+    protected $fillable = ['fecha','hora_inicio', 'precio_entrada', 'asientos_disponibles' , 'sala_id', 'pelicula_id'];
 
     public function entradas()
     {
@@ -35,12 +35,13 @@ class Funcion extends Model
         return $this->belongsTo(Pelicula::class);
     }
 
-    public static function agregarFuncion($fecha, $hora_inicio, $precio_entrada, $peliculaId, $salaId)
+    public static function agregarFuncion($fecha, $hora_inicio, $precio_entrada, $asientosDisponibles,  $peliculaId, $salaId)
     {
         $funcion = new Funcion();
         $funcion->fecha = $fecha;
         $funcion->hora_inicio = $hora_inicio;
         $funcion->precio_entrada = $precio_entrada;
+        $funcion->asientos_disponibles = $asientosDisponibles;
         $funcion->pelicula_id = $peliculaId;
         $funcion->sala_id = $salaId;
         $funcion->save();

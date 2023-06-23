@@ -77,12 +77,12 @@
 
                     <!-- Capacidad asientos disponibles -->
                     <div class="col-6 d-flex align-items-center">
-                        <label for="capacidad_asientos">Capacidad de asientos disponibles: {{ $funcion->sala->capacidad_asientos }}</label>
+                        <label for="asientos_disponibles" id="asientos_disponibles"></label>
                     </div>
 
                     <!-- Precio entrada unitaria -->
                     <div class="col-12 text-center">
-                        <label for="capacidad_asientos">Precio de entrada unitaria: {{ $funcion->precio_entrada }}</label>
+                        <label for="precio_entrada">Precio de entrada unitaria: {{ $funcion->precio_entrada }}</label>
                     </div>
 
                     <div class="text-center">
@@ -107,6 +107,26 @@
                 $('#hora_inicio option[data-fecha="' + selectedFecha + '"]').show();
                 $('#hora_inicio').val('');
             });
+
+                    $('#hora_inicio').change(function() {
+                        let selectedHoraInicio = $(this).val();
+                        let funcion = obtenerFuncionPorHoraInicio(selectedHoraInicio);
+                        if (funcion) {
+                            $('#asientos_disponibles').text('Capacidad de asientos disponibles:' + funcion.asientos_disponibles);
+                        } else {
+                            $('#asientos_disponibles').text('');
+                        }
+                    });
+
+                    function obtenerFuncionPorHoraInicio(horaInicio) {
+                        let funciones = {!!   json_encode($funciones) !!};
+                        for (var i = 0; i < funciones.length; i++) {
+                            if (funciones[i].hora_inicio === horaInicio) {
+                                return funciones[i];
+                            }
+                        }
+                        return null;
+                    }
         });
     </script>
 </body>

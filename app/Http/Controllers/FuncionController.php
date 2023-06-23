@@ -131,11 +131,14 @@ class FuncionController extends Controller
                 }
         
 
+                $salaId = $datos['sala_id'];
+                $asientosDisponibles = Sala::find($salaId)->capacidad_asientos;
             // Llamar a la función agregarFuncion() del modelo Funcion
             $funcion = Funcion::agregarFuncion(
                         $datos['fecha'],
                         $datos['hora_inicio'],
                         $datos['precio_entrada'],
+                        $asientosDisponibles,
                         $datos['pelicula_id'],
                         $datos['sala_id']
                     );

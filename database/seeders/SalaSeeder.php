@@ -25,5 +25,11 @@ class SalaSeeder extends Seeder
             'tipo_sala' => '3D',
             'capacidad_asientos' => 100
         ]);
+
+        Sala::create([
+            'nombre' => 'Sala 3',
+            'tipo_sala' => '3D',
+            'capacidad_asientos' => 100
+        ]);
     }
 }

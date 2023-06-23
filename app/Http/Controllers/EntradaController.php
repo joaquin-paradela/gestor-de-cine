@@ -62,13 +62,18 @@ class EntradaController extends Controller
         $precioUnitario = $request->input('precioUnitario');
        
 
-        $funcion = Funcion::find($funcionId);
-        // Restar la cantidad de entradas compradas a los asientos disponibles
-        $sala = $funcion->sala;
-        $asientosDisponibles = $sala->capacidad_asientos;
-        $asientosDisponibles -= $cantidadEntradas;
-        $sala->capacidad_asientos = $asientosDisponibles;
-        $sala->save();
+       // Obtener la función y verificar la disponibilidad de asientos
+    $funcion = Funcion::find($funcionId);
+    $asientosDisponibles = $funcion->asientos_disponibles;
+    if ($cantidadEntradas > $asientosDisponibles) {
+        Session::flash('error', 'No hay suficientes asientos disponibles');
+        return redirect()->back();
+    }
+
+    $funcion->decrement('asientos_disponibles', $cantidadEntradas);
+    // Actualizar los asientos disponibles en una transacción
+    $funcion->save();
+
 
         
       
@@ -138,11 +143,11 @@ class EntradaController extends Controller
         $puntostotales = $user->puntos_acumulados;
 
         $entradas = $user->entradas()
-        ->with(['funcion' => function ($query) {
-            $query->withTrashed(); // Incluir funciones eliminadas lógicamente
-        }, 'funcion.pelicula'])
-        ->orderByDesc('id')
-        ->get();
+                            ->with(['funcion' => function ($query) {
+                                $query->withTrashed(); // Incluir funciones eliminadas lógicamente
+                            }, 'funcion.pelicula'])
+                            ->orderByDesc('id')
+                            ->get();
        
 
         return view('historial', ['entradas' => $entradas, 'puntostotales' => $puntostotales]);
