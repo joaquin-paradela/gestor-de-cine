@@ -17,7 +17,7 @@ class EntradaController extends Controller
     {
         $pelicula = Pelicula::find($peliculaId);
         $funciones = $pelicula->funciones;
-        return view('boleteria', compact('pelicula', 'funciones'));
+        return view('boleteria', compact('pelicula','funciones'));
     }
 
     public function checkout(Request $request)
