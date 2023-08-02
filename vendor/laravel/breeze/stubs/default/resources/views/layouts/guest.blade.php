@@ -12,13 +12,16 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-         <!-- Scripts -->
-    @vite([
-        'https://gestor-de-cine-production.up.railway.app/resources/css/app.css', 
-        'https://gestor-de-cine-production.up.railway.app/resources/js/app.js', 
-        'https://gestor-de-cine-production.up.railway.app/build/assets/app-e7c8c463.js', 
-        'https://gestor-de-cine-production.up.railway.app/build/assets/app-385867e0.css'
-    ])
+        <!-- Your custom styles -->
+        <link href="{{ secure_asset('resources/css/app.css') }}" rel="stylesheet">
+        <link href="{{ secure_asset('resources/js/app.js') }}" rel="stylesheet">
+
+
+    <!-- Other stylesheets -->
+    <link href="{{ secure_asset('build/assets/app-e7c8c463.js') }}" rel="stylesheet">
+    <link href="{{ secure_asset('build/assets/app-385867e0.css') }}" rel="stylesheet">
+
+        
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
