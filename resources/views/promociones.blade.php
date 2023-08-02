@@ -5,12 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Sistema de Gestion de Cine </title>
       <!-- Bootstrap -->
-      <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+      <link href="{{ secure_asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
         <!--css Personalizado-->
-       <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+       <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet" type="text/css">
        <!-- Fonts -->
 
-        <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ secure_asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     </head>
@@ -43,7 +43,7 @@
                 <p> Promoción valida hasta 31/05/2023. En la compra de entradas 3D, 50% de descuento al valor total.</p>
               </div>
               <div class="col col-lg-6">
-              <img src="{{ asset('Imagenes/Banco provincia.jpg') }}" alt="Banco Provincia" class="col col-lg-4" >
+              <img src="{{ secure_asset('Imagenes/Banco provincia.jpg') }}" alt="Banco Provincia" class="col col-lg-4" >
               </div>
             </div>
           </div>
@@ -57,7 +57,7 @@
               <p> Promoción valida hasta 31/05/2023. En la compra de entradas 4D, 40% de descuento al valor total.</p>
             </div>
             <div class="col col-lg-6">
-            <img src="{{ asset('Imagenes/galicia.jpg') }}" alt="Banco Galicia" class="col col-lg-4" >
+            <img src="{{ secure_asset('Imagenes/galicia.jpg') }}" alt="Banco Galicia" class="col col-lg-4" >
             </div>
           </div>
         </div>

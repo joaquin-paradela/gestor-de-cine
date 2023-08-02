@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Género</title>
     <!-- Bootstrap -->
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ secure_asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
     <!-- CSS Personalizado -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
     <!-- Menú de navegación -->
@@ -57,6 +57,6 @@
     @include('layouts.footer')
     <!-- Fin footer -->
 
-    <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+    <script src="{{ secure_asset('js/bootstrap.bundle.js') }}"></script>
 </body>
 </html>

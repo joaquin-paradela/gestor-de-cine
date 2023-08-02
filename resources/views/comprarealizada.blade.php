@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Gestión de Cine - Compra realizada</title>
     <!-- Bootstrap -->
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ secure_asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
     <!-- CSS Personalizado -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet" type="text/css">
     <!-- Fonts -->
-    <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ secure_asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 </head>

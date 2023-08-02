@@ -26,7 +26,7 @@
             <div class="col-lg-4">
              <ul id="listafooter">
               <li>
-                <a  href="{{ url('/bienvenida') }}">Cartelera</a>
+                <a  href="{{ url('/') }}">Cartelera</a>
               </li>
               <li>
                 <a  href="{{ url('/contacto') }}">Contacto</a>

@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Gestión de Cine - Películas</title>
     <!-- Bootstrap -->
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ secure_asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
     <!-- CSS Personalizado -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet" type="text/css">
     <!-- Fonts -->
-    <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ secure_asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 </head>
@@ -52,7 +52,7 @@
                 @foreach ($peliculas as $pelicula)
                 <div class="col-lg-3 col-md-4 col-sm-10">
                     <div class="card text-bg-dark text-center">
-                        <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" alt="{{ $pelicula->titulo }}" class="card-img-top">
+                        <img src="{{ secure_asset('Imagenes/' . $pelicula->imagen) }}" alt="{{ $pelicula->titulo }}" class="card-img-top">
                             
                         <div class="card-body text-start">
                             <h3>{{ $pelicula->titulo }}</h3>
@@ -85,7 +85,7 @@
     @include('layouts.footer')
     <!-- Fin footer -->
 
-    <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+    <script src="{{ secure_asset('js/bootstrap.bundle.js') }}"></script>
         <script>
       
         var btnEliminar = document.getElementById('btnEliminar');

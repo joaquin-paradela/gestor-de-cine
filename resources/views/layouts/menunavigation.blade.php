@@ -14,7 +14,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/bienvenida') }}"><img id="logo-principal"
-                    src="{{ asset('Imagenes/ICONOS/Logo cine png.png') }}" alt="Logo"></a>
+                    src="{{ secure_asset('Imagenes/ICONOS/Logo cine png.png') }}" alt="Logo"></a>
                 </li>
 
                 <li class="nav-item">

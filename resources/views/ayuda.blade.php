@@ -6,12 +6,12 @@
         <title> Sistema de Gestion de Cine </title>
 
          <!-- Bootstrap -->
-         <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+         <link href="{{ secure_asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
         <!--css Personalizado-->
-       <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+       <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet" type="text/css">
        <!-- Fonts -->
 
-       <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
+       <link href="{{ secure_asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
     </head>
 
     <body>
@@ -111,7 +111,7 @@
             <h3>
               Descarga el Manual de Usuario Aquí
             </h3>
-            <a href="{{ asset('docs/manual_usuario.pdf') }}" class="row align-items-center justify-content-center" download="Manual-Usuario"><img src="{{ asset('Imagenes/ICONOS/Icono pdf.png') }}" alt="Icono descarga Manual de usuario" id="Manual-Usuario" ></a>
+            <a href="{{ secure_asset('docs/manual_usuario.pdf') }}" class="row align-items-center justify-content-center" download="Manual-Usuario"><img src="{{ secure_asset('Imagenes/ICONOS/Icono pdf.png') }}" alt="Icono descarga Manual de usuario" id="Manual-Usuario" ></a>
           </div>
         </div>
      </div>

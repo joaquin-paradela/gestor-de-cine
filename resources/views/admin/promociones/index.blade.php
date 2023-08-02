@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Gestión de Cine</title>
     <!-- Bootstrap -->
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ secure_asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
     <!-- CSS Personalizado -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet" type="text/css">
     <!-- Fonts -->
-    <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ secure_asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 </head>
@@ -36,7 +36,7 @@
                     <p class="mt-2">Por cada compra de entrada, obtenés <strong>5</strong> puntos para acumular y canjear.</p>
                 </div>
                 <div class="col col-lg-6">
-                    <img src="{{ asset('Imagenes/boletoapuntos.jpg') }}" alt="Películas 2D" class="col col-lg-4">
+                    <img src="{{ secure_asset('Imagenes/boletoapuntos.jpg') }}" alt="Películas 2D" class="col col-lg-4">
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
                     <p class="mt-2">Por cada <strong>20</strong> puntos acumulados es posible cambiarlos por 1 entrada para salas 2D y 3D.</p>
                 </div>
                 <div class="col col-lg-6">
-                    <img src="{{ asset('Imagenes/puntosaboleto.jpg') }}" alt="Películas 2D" class="col col-lg-4 ">
+                    <img src="{{ secure_asset('Imagenes/puntosaboleto.jpg') }}" alt="Películas 2D" class="col col-lg-4 ">
                 </div>
             </div>
         </div>
