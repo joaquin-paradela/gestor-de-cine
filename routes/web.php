@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Mail;
 //rutas para clientes logueados y no logueados 
 Route::get('/', [FuncionController::class, 'carrusel'])->name('carrusel');
 
-Route::get('/bienvenida', [FuncionController::class, 'carrusel'])->name('carrusel');
+Route::get('/bienvenida', [FuncionController::class, 'carrusel'])->name('bienvenida');
 
 Route::get('/ayuda', function () {
     return view('ayuda');
