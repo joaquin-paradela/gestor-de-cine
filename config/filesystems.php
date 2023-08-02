@@ -38,8 +38,8 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => public_path('Imagenes'), // Ruta del directorio public/imagenes
+            'url' => env('APP_URL').'/Imagenes', // URL para acceder a las imágenes en el nav
             'visibility' => 'public',
             'throw' => false,
         ],
