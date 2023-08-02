@@ -5,12 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Sistema de Gestion de Cine </title>
         <!-- Bootstrap -->
-        <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ secure_asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
         <!--css Personalizado-->
-       <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+       <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet" type="text/css">
         <!-- Fonts -->
 
-       <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
+       <link href="{{ secure_asset('css/tailwind.css') }}" rel="stylesheet" type="text/css">
        <link rel="preconnect" href="https://fonts.bunny.net">
        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
         
@@ -49,7 +49,7 @@
                     @foreach ($peliculas as $pelicula)
                     <div class="carousel-item row {{ $loop->first ? 'active' : '' }} justify-content-center text-center">
                        <div class="row justify-content-center text-center">
-                            <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" class="img-fluid carousel-image d-block" alt="{{ $pelicula->titulo }}">
+                            <img src="{{ secure_asset('Imagenes/' . $pelicula->imagen) }}" class="img-fluid carousel-image d-block" alt="{{ $pelicula->titulo }}">
                         </div>
                         <div class="col">
                             <div class="carousel-caption d-none d-md-block" id="epigrafe">
@@ -84,7 +84,7 @@
             @foreach ($peliculas as $pelicula)
             <div class="col-lg-3 col-md-4 col-sm-10 mb-3">
                 <div class="card text-bg-dark text-center">
-                    <img src="{{ asset('Imagenes/' . $pelicula->imagen) }}" class="card-img-top" alt="{{ $pelicula->titulo }}">
+                    <img src="{{ secure_asset('Imagenes/' . $pelicula->imagen) }}" class="card-img-top" alt="{{ $pelicula->titulo }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $pelicula->titulo }}</h5>
                         <a href="{{ route('boleteria', ['peliculaId' => $pelicula->id]) }}" class="btn btn-primary">Comprar Entrada</a>
@@ -100,7 +100,7 @@
       <!-- inicio Footer -->
       @include('layouts.footer')
       <!-- Fin footer -->
-      <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
+      <script src="{{ secure_asset('js/bootstrap.bundle.js') }}"></script>
     </body>
 </html>
 
