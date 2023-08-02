@@ -11,15 +11,13 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Scripts -->
-        <!-- Your custom styles -->
-        <link href="{{ secure_asset('resources/css/app.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('resources/js/app.js') }}" rel="stylesheet">
+        <
+      <!-- Meta tags y otros elementos del head -->
+    <link rel="stylesheet" href="{{ secure_asset('resources/css/app.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('build/assets/app-385867e0.css') }}">
 
 
-    <!-- Other stylesheets -->
-    <link href="{{ secure_asset('build/assets/app-e7c8c463.js') }}" rel="stylesheet">
-    <link href="{{ secure_asset('build/assets/app-385867e0.css') }}" rel="stylesheet">
+
 
         
     </head>
@@ -35,5 +33,7 @@
                 {{ $slot }}
             </div>
         </div>
+        <script src="{{ secure_asset('resources/js/app.js') }}"></script>
+    <script src="{{ secure_asset('build/assets/app-e7c8c463.js') }}"></script>
     </body>
 </html>
