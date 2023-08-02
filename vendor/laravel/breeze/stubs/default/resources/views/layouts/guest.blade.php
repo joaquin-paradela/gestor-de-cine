@@ -14,7 +14,7 @@
         <
       <!-- Meta tags y otros elementos del head -->
     <link rel="stylesheet" href="{{ secure_asset('resources/css/app.css') }}">
-    <link rel="stylesheet" href="{{ secure_asset('build/assets/app-385867e0.css') }}">
+   <!--  <link rel="stylesheet" href="{{ secure_asset('build/assets/app-385867e0.css') }}">-->
 
 
 
@@ -34,6 +34,6 @@
             </div>
         </div>
         <script src="{{ secure_asset('resources/js/app.js') }}"></script>
-    <script src="{{ secure_asset('build/assets/app-e7c8c463.js') }}"></script>
+  <!--  <script src="{{ secure_asset('build/assets/app-e7c8c463.js') }}"></script>-->
     </body>
 </html>
