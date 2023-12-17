@@ -48,4 +48,11 @@ class Funcion extends Model
 
         return $funcion;
     }
+
+    // Dentro del modelo Funcion
+    public function tieneAsientosDisponibles($cantidadEntradas)
+    {
+        return $this->asientos_disponibles >= $cantidadEntradas;
+    }
+
 }
